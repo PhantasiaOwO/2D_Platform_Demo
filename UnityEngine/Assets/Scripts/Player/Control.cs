@@ -13,7 +13,7 @@ public class Control : MonoBehaviour
 
     public Rigidbody2D playerRigidbody;
     public Collider2D bodyCollider;
-    public Collider2D feetCollider;
+    public Collider2D groundDetectCollider;
     public LayerMask ground;
     public GameObject gameObjectEsc;
 
@@ -120,7 +120,7 @@ public class Control : MonoBehaviour
 
     private void Move()
     {
-        if (feetCollider.IsTouchingLayers(ground))
+        if (groundDetectCollider.IsTouchingLayers(ground))
         {
             // On ground speed
             var horizontal = Input.GetAxis("Horizontal");
@@ -143,7 +143,7 @@ public class Control : MonoBehaviour
 
     private void JudgeJump()
     {
-        if (!feetCollider.IsTouchingLayers(ground)) return;
+        if (!groundDetectCollider.IsTouchingLayers(ground)) return;
         if (!Input.GetButtonDown("Jump")) return;
 
         _isJump = true;
