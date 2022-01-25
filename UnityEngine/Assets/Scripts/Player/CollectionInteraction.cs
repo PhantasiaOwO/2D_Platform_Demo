@@ -8,30 +8,25 @@ using UnityEngine.UI;
 public class CollectionInteraction : MonoBehaviour
 {
     // Unity component
-    public Text conditionTextBox;
+    public GameObject conditionUI;
 
     private void Start()
     {
-        #region Condition Initiaization
-
         GetComponent<PlayerStatus>().courseClearCondition = false;
-        var color = Color.green;
-        conditionTextBox.color = new Color(color.r, color.g, color.b, 0);
-
-        #endregion
+        conditionUI.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         // Notice: Body collider and feet collider will both active this method
+
         #region Course Clear Condition
 
         if (col.CompareTag("Course Clear Condition"))
         {
             Destroy(col.gameObject);
             GetComponent<PlayerStatus>().courseClearCondition = true;
-            var color = conditionTextBox.color;
-            conditionTextBox.color = new Color(color.r, color.g, color.b, 1);
+            conditionUI.SetActive(true);
         }
 
         #endregion
