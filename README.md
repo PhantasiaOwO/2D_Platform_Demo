@@ -15,3 +15,6 @@
 
 - 绘制新地图时，复制一份Template场景
 - BackGround(Temp)为临时背景，用于限制摄像机运动范围
+- DeadZone为判定死亡区域
+- Grid-Course为关卡绘制区域
+- CourseClearCondition为通关条件(2022.1.25暂时只有一个)
