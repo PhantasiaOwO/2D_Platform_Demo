@@ -25,15 +25,16 @@ public class Control : MonoBehaviour
     public float normalSpeed;
     public float jumpSpeed;
     public float jumpForce;
+    public bool isOnGround;
 
     #endregion
 
     #region Boolean to transmit status
 
-    private bool _isJump;
+    private bool _isJumping;
     private bool _isBuilding;
-    private bool _isHurt;
-    private bool _isPause;
+    private bool _isBeingHurt;
+    private bool _isPaused;
 
     #endregion
 
@@ -57,10 +58,10 @@ public class Control : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
 
         // Initialize boolean
-        _isJump = false;
+        _isJumping = false;
         _isBuilding = false;
-        _isHurt = false;
-        _isPause = false;
+        _isBeingHurt = false;
+        _isPaused = false;
 
         Time.timeScale = 1;
 
@@ -74,15 +75,15 @@ public class Control : MonoBehaviour
 
     void Update()
     {
-        if (!_isPause && Input.GetKeyDown(KeyCode.Escape))
+        if (!_isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
-            _isPause = true;
+            _isPaused = true;
             gameObjectEsc.SetActive(true);
             Time.timeScale = 0;
         }
-        else if (_isPause && Input.GetKeyDown(KeyCode.Escape))
+        else if (_isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
-            _isPause = false;
+            _isPaused = false;
             gameObjectEsc.SetActive(false);
             Time.timeScale = 1;
         }
@@ -96,7 +97,8 @@ public class Control : MonoBehaviour
         // When building, lock the velocity and pass "Move" and "Jump"
         if (_isBuilding)
         {
-            playerRigidbody.velocity = new Vector2(0f, 0f);
+            var velocity = playerRigidbody.velocity;
+            playerRigidbody.velocity = new Vector2(0f, velocity.y);
             return;
         }
 
@@ -111,16 +113,16 @@ public class Control : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!col.collider.CompareTag("DeadZone")) return;
-        _isHurt = true;
+        _isBeingHurt = true;
         Debug.Log("trigger enter");
     }
 
     private void BeHurt()
     {
-        if (!_isHurt) return;
+        if (!_isBeingHurt) return;
 
         StartCoroutine(RunFallOut(GetComponent<PlayerStatus>().lastCheckPoint));
-        _isHurt = false;
+        _isBeingHurt = false;
     }
 
     private IEnumerator RunFallOut(Vector3 checkPoint)
@@ -141,17 +143,37 @@ public class Control : MonoBehaviour
         var rawHorizontal = Input.GetAxisRaw("Horizontal");
         if (rawHorizontal != 0)
         {
-            playerRigidbody.transform.localScale = new Vector3(rawHorizontal * 0.02f, 0.02f, 1);
             // Anim run trigger
             playerAnimator.SetBool(BlnAnimRun, true);
+
+            var scale = playerRigidbody.transform.localScale;
+            // If face and speed both direction,ignore these code
+            if (scale.x * rawHorizontal < 0)
+            {
+                Debug.Log("Control: Face direction changed");
+                playerRigidbody.transform.localScale = new Vector3(rawHorizontal * 0.02f, 0.02f, 1);
+                if (rawHorizontal > 0)
+                {
+                    var position = playerRigidbody.transform.position;
+                    playerRigidbody.transform.position = new Vector2(position.x + 0.65f, position.y);
+                }
+                else
+                {
+                    var position = playerRigidbody.transform.position;
+                    playerRigidbody.transform.position = new Vector2(position.x - 0.65f, position.y);
+                }
+            }
         }
         else
         {
             playerAnimator.SetBool(BlnAnimRun, false);
         }
 
+        // Movement
         if (groundDetectCollider.IsTouchingLayers(ground))
         {
+            isOnGround = true;
+
             // On ground speed
             var horizontal = Input.GetAxis("Horizontal");
             var speed = playerRigidbody.velocity;
@@ -163,6 +185,8 @@ public class Control : MonoBehaviour
         }
         else
         {
+            isOnGround = false;
+
             // On air speed
             var horizontal = Input.GetAxis("Horizontal");
             var speed = playerRigidbody.velocity;
@@ -186,13 +210,13 @@ public class Control : MonoBehaviour
         if (!groundDetectCollider.IsTouchingLayers(ground)) return;
         if (!Input.GetButtonDown("Jump")) return;
 
-        _isJump = true;
+        _isJumping = true;
     }
 
     private void ExecuteJump()
     {
-        if (!_isJump) return;
-        _isJump = false;
+        if (!_isJumping) return;
+        _isJumping = false;
 
         Debug.Log("Player.Movement: Execute jump");
         playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpForce * Time.deltaTime);
@@ -210,6 +234,10 @@ public class Control : MonoBehaviour
         Debug.Log("Player.Movement: Received spawn start");
         _isBuilding = true;
         playerRigidbody.mass = 1000000;
+        playerAnimator.SetBool(BlnAnimIdle, true);
+        playerAnimator.SetBool(BlnAnimFall, false);
+        playerAnimator.SetBool(BlnAnimJump, false);
+        playerAnimator.SetBool(BlnAnimRun, false);
         playerAnimator.SetBool(BlnAnimSummon, true);
     }
 

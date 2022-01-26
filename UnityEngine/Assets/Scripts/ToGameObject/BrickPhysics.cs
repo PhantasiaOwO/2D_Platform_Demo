@@ -14,13 +14,7 @@ public class BrickPhysics : MonoBehaviour
     public GameObject sourceButton;
 
     #endregion
-
-    // #region Parameter of Unity object
-    //
-    // public float mapBottom;
-    //
-    // #endregion
-
+    
     #region Status boolean
 
     private bool _canMove;

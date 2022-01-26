@@ -23,10 +23,21 @@ public class BrickInteraction : MonoBehaviour
     private void Start()
     {
         remainTextBox.text = "Brick remain: " + brickNumber.ToString();
+
+        // Get player game object
+        // TODO Need test in scene change
+        player = GameObject.Find("Player");
     }
 
     public void OnClick()
     {
+        if (!GameObject.Find("Player").GetComponent<Control>().isOnGround)
+        {
+            // TODO Didn't standing on the ground
+            Debug.Log("BrickInteraction: Didn't stand on the ground");
+            return;
+        }
+
         if (!GameObject.Find("Player").GetComponent<PlayerStatus>().canSpawn)
         {
             // TODO Print last brick unlock status information

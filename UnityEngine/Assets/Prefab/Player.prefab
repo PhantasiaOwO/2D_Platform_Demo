@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 6662071731878249382}
   - component: {fileID: 6270700301890095006}
   - component: {fileID: 5799412069627622856}
+  - component: {fileID: 1866820287435873200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -217,8 +218,9 @@ PolygonCollider2D:
       - {x: 4.156674, y: 138.3898}
       - {x: -10.753379, y: 164.86475}
       - {x: -23.523153, y: 167.9365}
-      - {x: -35.855858, y: 164.18376}
-      - {x: -36.014427, y: 151.31194}
+      - {x: -31.793516, y: 158.02914}
+      - {x: -33.094826, y: 154.95554}
+      - {x: -34.81375, y: 142.47063}
       - {x: -35.872807, y: 134.75159}
       - {x: -35.91753, y: 56.92408}
       - {x: -31.121124, y: 35.64109}
@@ -320,6 +322,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+--- !u!111 &1866820287435873200
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526595403675077213}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &546678927253295037
 GameObject:
   m_ObjectHideFlags: 0
