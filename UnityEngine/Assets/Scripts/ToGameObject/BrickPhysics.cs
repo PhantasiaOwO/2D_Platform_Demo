@@ -31,6 +31,8 @@ public class BrickPhysics : MonoBehaviour
 
     private void Start()
     {
+        brickRigidbody = GetComponent<Rigidbody2D>();
+        brickCollider = GetComponent<Collider2D>();
         _canMove = true;
     }
 
@@ -43,6 +45,10 @@ public class BrickPhysics : MonoBehaviour
             brickRigidbody.gravityScale = 1;
             brickRigidbody.mass = 1000000;
             brickCollider.isTrigger = false;
+
+            var color = brickRigidbody.GetComponent<SpriteRenderer>().color;
+            brickRigidbody.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 1);
+
             _canMove = false;
 
             // Relieve "Player" static

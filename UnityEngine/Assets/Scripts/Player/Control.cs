@@ -11,7 +11,8 @@ public class Control : MonoBehaviour
 {
     #region Unity component
 
-    public Rigidbody2D playerRigidbody;
+    [SerializeField] private Rigidbody2D playerRigidbody;
+    [SerializeField] private Animator playerAnimator;
     public Collider2D bodyCollider;
     public Collider2D groundDetectCollider;
     public LayerMask ground;
@@ -36,12 +37,24 @@ public class Control : MonoBehaviour
 
     #endregion
 
+    #region Animator index
+
+    private static readonly int BlnAnimIdle = Animator.StringToHash("idle");
+    private static readonly int FltAnimRun = Animator.StringToHash("running");
+    private static readonly int BlnAnimRun = Animator.StringToHash("runningTrigger");
+    private static readonly int BlnAnimJump = Animator.StringToHash("jumping");
+    private static readonly int BlnAnimFall = Animator.StringToHash("falling");
+    private static readonly int BlnAnimSummon = Animator.StringToHash("summon");
+
+    #endregion
+
     #region Unity method
 
     void Start()
     {
         // Get component
         playerRigidbody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
 
         // Initialize boolean
         _isJump = false;
@@ -50,6 +63,13 @@ public class Control : MonoBehaviour
         _isPause = false;
 
         Time.timeScale = 1;
+
+        playerAnimator.SetBool(BlnAnimIdle, true);
+        playerAnimator.SetBool(BlnAnimJump, false);
+        playerAnimator.SetBool(BlnAnimFall, false);
+        playerAnimator.SetBool(BlnAnimSummon, false);
+        playerAnimator.SetBool(BlnAnimRun, false);
+        playerAnimator.SetFloat(FltAnimRun, 0f);
     }
 
     void Update()
@@ -107,10 +127,7 @@ public class Control : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        // Decrease health
-        GetComponent<PlayerStatus>().health--;
-        GetComponent<PlayerStatus>().HealthChange();
-        playerRigidbody.transform.position = checkPoint;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield break;
     }
 
@@ -120,20 +137,43 @@ public class Control : MonoBehaviour
 
     private void Move()
     {
+        // Face direction
+        var rawHorizontal = Input.GetAxisRaw("Horizontal");
+        if (rawHorizontal != 0)
+        {
+            playerRigidbody.transform.localScale = new Vector3(rawHorizontal * 0.02f, 0.02f, 1);
+            // Anim run trigger
+            playerAnimator.SetBool(BlnAnimRun, true);
+        }
+        else
+        {
+            playerAnimator.SetBool(BlnAnimRun, false);
+        }
+
         if (groundDetectCollider.IsTouchingLayers(ground))
         {
             // On ground speed
             var horizontal = Input.GetAxis("Horizontal");
-            playerRigidbody.velocity =
-                new Vector2(normalSpeed * horizontal * Time.deltaTime, playerRigidbody.velocity.y);
-            // TODO Animator player face direction
+            var speed = playerRigidbody.velocity;
+            playerRigidbody.velocity = new Vector2(normalSpeed * horizontal * Time.deltaTime, speed.y);
+
+            // Animator run
+            playerAnimator.SetFloat(FltAnimRun, Math.Abs(speed.x));
+            playerAnimator.SetBool(BlnAnimFall, false);
         }
         else
         {
             // On air speed
             var horizontal = Input.GetAxis("Horizontal");
-            playerRigidbody.velocity =
-                new Vector2(jumpSpeed * horizontal * Time.deltaTime, playerRigidbody.velocity.y);
+            var speed = playerRigidbody.velocity;
+            playerRigidbody.velocity = new Vector2(jumpSpeed * horizontal * Time.deltaTime, speed.y);
+
+            // Animator jump and fall
+            if (speed.y < 0f)
+            {
+                playerAnimator.SetBool(BlnAnimJump, false);
+                playerAnimator.SetBool(BlnAnimFall, true);
+            }
         }
     }
 
@@ -156,7 +196,9 @@ public class Control : MonoBehaviour
 
         Debug.Log("Player.Movement: Execute jump");
         playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpForce * Time.deltaTime);
-        // TODO Animator jump
+
+        // Animation jump
+        playerAnimator.SetBool(BlnAnimJump, true);
     }
 
     #endregion
@@ -168,6 +210,7 @@ public class Control : MonoBehaviour
         Debug.Log("Player.Movement: Received spawn start");
         _isBuilding = true;
         playerRigidbody.mass = 1000000;
+        playerAnimator.SetBool(BlnAnimSummon, true);
     }
 
     void ReceiveSpawnEnd() // "BrickPhysics" will use this method
@@ -175,6 +218,7 @@ public class Control : MonoBehaviour
         Debug.Log("Player.Movement: Received spawn end");
         _isBuilding = false;
         playerRigidbody.mass = 1;
+        playerAnimator.SetBool(BlnAnimSummon, false);
     }
 
     #endregion

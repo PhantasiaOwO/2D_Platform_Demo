@@ -46,7 +46,13 @@ public class BrickInteraction : MonoBehaviour
         var newBrick = GameObject.Instantiate(brick);
         newBrick.transform.position =
             new Vector3(playerPosition.x + 2.5f, playerPosition.y + 1.5f, playerPosition.z);
+
+        var color = newBrick.GetComponent<SpriteRenderer>().color;
+        newBrick.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 0.5f);
+
         newBrick.name = "(Spawn)" + brick.name.ToString();
+        newBrick.GetComponent<Rigidbody2D>().gravityScale = 0;
+        newBrick.GetComponent<Collider2D>().isTrigger = false;
         newBrick.SetActive(true);
 
         // Require "Player" static

@@ -30,8 +30,9 @@ public class PlayerStatus : MonoBehaviour
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         lastCheckPoint = GetComponent<Transform>().position;
         SavePlayerStatusFile();
-        
+
         canSpawn = true;
+        courseClearCondition = false;
     }
 
     #region Health change
