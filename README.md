@@ -18,3 +18,4 @@
 - DeadZone为判定死亡区域，可以直接复制
 - Grid-Course为关卡绘制区域
 - CourseClearCondition为通关条件(2022.1.25暂时只有一个)
+- Tag: DeadZone为伤害触发器
