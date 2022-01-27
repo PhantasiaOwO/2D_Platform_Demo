@@ -18,7 +18,7 @@ public class PlayerStatus : MonoBehaviour
     // Public value
     public int sceneIndex;
     public int health;
-    public Vector3 lastCheckPoint; // It will modified in "CollectionInteraction.cs"
+    public Vector3 courseStart; // It will modified in "CollectionInteraction.cs"
     public bool courseClearCondition;
     public bool canSpawn;
 
@@ -28,7 +28,7 @@ public class PlayerStatus : MonoBehaviour
 
         // Start new course
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        lastCheckPoint = GetComponent<Transform>().position;
+        courseStart = GetComponent<Transform>().position;
         SavePlayerStatusFile();
 
         canSpawn = true;
@@ -54,7 +54,7 @@ public class PlayerStatus : MonoBehaviour
     {
         public int sav_sceneIndex;
         public int sav_health;
-        public Vector3 sav_lastCheckPoint;
+        public Vector3 sav_courseStart;
         public bool sav_courseClearCondition;
     }
 
@@ -66,7 +66,7 @@ public class PlayerStatus : MonoBehaviour
         {
             sav_sceneIndex = sceneIndex,
             sav_health = health,
-            sav_lastCheckPoint = lastCheckPoint,
+            sav_courseStart = courseStart,
             sav_courseClearCondition = courseClearCondition,
         };
 
@@ -83,7 +83,7 @@ public class PlayerStatus : MonoBehaviour
 
         sceneIndex = loadData.sav_sceneIndex;
         health = loadData.sav_health;
-        lastCheckPoint = loadData.sav_lastCheckPoint;
+        courseStart = loadData.sav_courseStart;
         courseClearCondition = loadData.sav_courseClearCondition;
     }
 

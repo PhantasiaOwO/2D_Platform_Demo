@@ -121,7 +121,7 @@ public class Control : MonoBehaviour
     {
         if (!_isBeingHurt) return;
 
-        StartCoroutine(RunFallOut(GetComponent<PlayerStatus>().lastCheckPoint));
+        StartCoroutine(RunFallOut(GetComponent<PlayerStatus>().courseStart));
         _isBeingHurt = false;
     }
 

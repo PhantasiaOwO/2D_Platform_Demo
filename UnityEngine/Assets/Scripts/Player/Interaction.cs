@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
         {
             var PositionCP = col.transform.position;
             // Send information to "PlayerStatus"
-            GetComponent<PlayerStatus>().lastCheckPoint = PositionCP;
+            GetComponent<PlayerStatus>().courseStart = PositionCP;
             GetComponent<PlayerStatus>().sceneIndex = SceneManager.GetActiveScene().buildIndex;
             GetComponent<PlayerStatus>().SavePlayerStatusFile(); // Save data when touching check point
             Debug.Log("CheckPoint change to " + PositionCP.ToString());

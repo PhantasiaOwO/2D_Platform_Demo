@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Course Clear Condition
-  - CheckPoint
   - DeadZone
+  - BackGround
+  - LoadTrigger
+  - UnloadTrigger
   layers:
   - Default
   - TransparentFX
