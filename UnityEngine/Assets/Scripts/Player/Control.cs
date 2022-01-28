@@ -129,7 +129,7 @@ public class Control : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
         yield break;
     }
 
@@ -247,6 +247,20 @@ public class Control : MonoBehaviour
         _isBuilding = false;
         playerRigidbody.mass = 1;
         playerAnimator.SetBool(BlnAnimSummon, false);
+    }
+
+    #endregion
+
+    #region Message Rebind component
+
+    public void RebindComponents()
+    {
+        // Rebind camera confiner
+        GameObject.FindWithTag("MainCamera").GetComponentInChildren<CinemachineConfiner>().m_BoundingShape2D =
+            GameObject.FindWithTag("BackGround").GetComponent<Collider2D>();
+
+        // Rebind player scripts of UI canvas
+        GetComponent<Interaction>().conditionUI = GameObject.Find("UIGame/Condition");
     }
 
     #endregion

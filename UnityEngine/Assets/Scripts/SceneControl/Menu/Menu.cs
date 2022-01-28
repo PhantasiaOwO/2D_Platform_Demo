@@ -15,10 +15,10 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("Click NewGame");
 
-        StartCoroutine(LoadSceneAsnyc());
+        StartCoroutine(LoadSceneAsync());
     }
 
-    IEnumerator LoadSceneAsnyc()
+    IEnumerator LoadSceneAsync()
     {
         var loadStatus1 = SceneManager.LoadSceneAsync(LOAD_AREA, LoadSceneMode.Additive);
         var loadStatus2 = SceneManager.LoadSceneAsync(FIRST_COURSE, LoadSceneMode.Additive);
@@ -49,6 +49,8 @@ public class Menu : MonoBehaviour
         // Unload other scenes
         SceneManager.UnloadSceneAsync("Menu");
         SceneManager.UnloadSceneAsync(LOAD_AREA);
+        
+        GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
     }
 
     public void ClickSaveList()

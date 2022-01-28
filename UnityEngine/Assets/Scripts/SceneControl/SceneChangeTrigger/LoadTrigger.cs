@@ -35,6 +35,8 @@ public class LoadTrigger : MonoBehaviour
 
         StartCoroutine(LoadSceneAsync());
         _isTriggered = true;
+
+        Destroy(this.gameObject);
     }
 
     IEnumerator LoadSceneAsync()
