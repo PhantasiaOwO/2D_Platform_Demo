@@ -8,6 +8,11 @@ public class ESC : MonoBehaviour
 {
     public GameObject gameObjectEsc;
 
+    private void Start()
+    {
+        gameObjectEsc = GameObject.Find("UIEscape").transform.Find("UIESC").gameObject;
+    }
+
     public void ClickResume()
     {
         gameObjectEsc.SetActive(false);

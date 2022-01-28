@@ -17,5 +17,10 @@ public class UnloadTrigger : MonoBehaviour
         // Rebind camera confiner
         GameObject.FindWithTag("MainCamera").GetComponentInChildren<CinemachineConfiner>().m_BoundingShape2D =
             GameObject.FindWithTag("BackGround").GetComponent<Collider2D>();
+
+        // Rebind player scripts of UI canvas
+        GameObject.FindWithTag("Player").GetComponent<Interaction>().conditionUI = GameObject.Find("UIGame/Condition");
+        // GameObject.FindWithTag("Player").GetComponent<Control>().gameObjectEsc =
+        //     GameObject.Find("UIEscape").transform.Find("UIESC").gameObject;
     }
 }

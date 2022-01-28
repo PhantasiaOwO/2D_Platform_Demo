@@ -11,6 +11,7 @@ public class LoadTrigger : MonoBehaviour
 {
     public GameObject player;
     public new GameObject camera;
+    public GameObject menuEscape;
 
     private bool _isTriggered;
 
@@ -18,6 +19,8 @@ public class LoadTrigger : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         camera = GameObject.FindWithTag("MainCamera");
+        menuEscape = GameObject.Find("UIEscape");
+
         _isTriggered = false;
     }
 
@@ -28,6 +31,7 @@ public class LoadTrigger : MonoBehaviour
 
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(camera);
+        DontDestroyOnLoad(menuEscape);
 
         StartCoroutine(LoadSceneAsync());
         _isTriggered = true;
@@ -44,8 +48,10 @@ public class LoadTrigger : MonoBehaviour
         }
 
         // Move vital game object to new scene
-        SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1));
-        SceneManager.MoveGameObjectToScene(camera, SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1));
+        var nextScene = SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1);
+        SceneManager.MoveGameObjectToScene(player, nextScene);
+        SceneManager.MoveGameObjectToScene(camera, nextScene);
+        SceneManager.MoveGameObjectToScene(menuEscape, nextScene);
 
         // Unload last scene will execute when enter unload trigger("UnloadTrigger.cs")
     }

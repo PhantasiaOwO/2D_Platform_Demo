@@ -8,12 +8,48 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    private const string LOAD_AREA = "000";
+    private const string FIRST_COURSE = "001";
+
     public void ClickNewGame()
     {
         Debug.Log("Click NewGame");
-        SceneManager.LoadScene("Scenes/001");
+
+        StartCoroutine(LoadSceneAsnyc());
     }
 
+    IEnumerator LoadSceneAsnyc()
+    {
+        var loadStatus1 = SceneManager.LoadSceneAsync(LOAD_AREA, LoadSceneMode.Additive);
+        var loadStatus2 = SceneManager.LoadSceneAsync(FIRST_COURSE, LoadSceneMode.Additive);
+
+        while (!(loadStatus1.isDone && loadStatus2.isDone))
+        {
+            yield return null;
+        }
+
+        // Get game object
+        var player = GameObject.FindWithTag("Player");
+        var camera = GameObject.FindWithTag("MainCamera");
+        var menuEscape = GameObject.Find("UIEscape");
+
+        DontDestroyOnLoad(player);
+        DontDestroyOnLoad(camera);
+        DontDestroyOnLoad(menuEscape);
+
+        // Move game object
+        var targetCourse = SceneManager.GetSceneByName(FIRST_COURSE);
+        SceneManager.MoveGameObjectToScene(player, targetCourse);
+        SceneManager.MoveGameObjectToScene(camera, targetCourse);
+        SceneManager.MoveGameObjectToScene(menuEscape, targetCourse);
+
+        // Game start
+        GameObject.FindWithTag("Player").transform.position = new Vector3(0, 0, 0);
+
+        // Unload other scenes
+        SceneManager.UnloadSceneAsync("Menu");
+        SceneManager.UnloadSceneAsync(LOAD_AREA);
+    }
 
     public void ClickSaveList()
     {

@@ -7,17 +7,20 @@ using UnityEngine.UI;
 
 public class Load : MonoBehaviour
 {
-    private int sceneIndex;
+    private const string LOAD_AREA = "000";
+
+    private int _sceneIndex;
+    private Vector3 _start;
 
     private void Start()
     {
-        sceneIndex = 0;
-        PlayerStatus.PlayerStatusData loadData;
+        _sceneIndex = 0;
         // Load scene index from file
         try
         {
-            loadData = SaveSystem.LoadFile<PlayerStatus.PlayerStatusData>(PlayerStatus.PLAYER_STATUS_FILE_NAME);
-            sceneIndex = loadData.sav_sceneIndex;
+            var loadData = SaveSystem.LoadFile<PlayerStatus.PlayerStatusData>(PlayerStatus.PLAYER_STATUS_FILE_NAME);
+            _sceneIndex = loadData.sav_sceneIndex;
+            _start = loadData.sav_courseStart;
         }
         catch (Exception e)
         {
@@ -31,8 +34,40 @@ public class Load : MonoBehaviour
 
     public void ClickLoad()
     {
-        // Go to target scene
-        SceneManager.LoadScene(sceneIndex);
         Debug.Log("Click load button");
+        StartCoroutine(LoadSceneAsnyc());
+    }
+
+    IEnumerator LoadSceneAsnyc()
+    {
+        var loadStatus1 = SceneManager.LoadSceneAsync(LOAD_AREA, LoadSceneMode.Additive);
+        var loadStatus2 = SceneManager.LoadSceneAsync(_sceneIndex, LoadSceneMode.Additive);
+
+        while (!(loadStatus1.isDone && loadStatus2.isDone))
+        {
+            yield return null;
+        }
+
+        // Get game object
+        var player = GameObject.FindWithTag("Player");
+        var camera = GameObject.FindWithTag("MainCamera");
+        var menuEscape = GameObject.Find("UIEscape");
+
+        DontDestroyOnLoad(player);
+        DontDestroyOnLoad(camera);
+        DontDestroyOnLoad(menuEscape);
+
+        // Move game object
+        var targetCourse = SceneManager.GetSceneByBuildIndex(_sceneIndex);
+        SceneManager.MoveGameObjectToScene(player, targetCourse);
+        SceneManager.MoveGameObjectToScene(camera, targetCourse);
+        SceneManager.MoveGameObjectToScene(menuEscape, targetCourse);
+
+        // Check point 
+        GameObject.FindWithTag("Player").transform.position = _start;
+
+        // Unload other scenes
+        SceneManager.UnloadSceneAsync("Menu");
+        SceneManager.UnloadSceneAsync(LOAD_AREA);
     }
 }

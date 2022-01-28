@@ -12,6 +12,8 @@ public class Interaction : MonoBehaviour
 
     private void Start()
     {
+        conditionUI = GameObject.Find("UIGame/Condition");
+
         GetComponent<PlayerStatus>().courseClearCondition = false;
         conditionUI.SetActive(false);
     }
@@ -35,12 +37,12 @@ public class Interaction : MonoBehaviour
 
         if (col.CompareTag("CheckPoint"))
         {
-            var PositionCP = col.transform.position;
+            var checkPointPosition = col.transform.position;
             // Send information to "PlayerStatus"
-            GetComponent<PlayerStatus>().courseStart = PositionCP;
+            GetComponent<PlayerStatus>().courseStart = checkPointPosition;
             GetComponent<PlayerStatus>().sceneIndex = SceneManager.GetActiveScene().buildIndex;
             GetComponent<PlayerStatus>().SavePlayerStatusFile(); // Save data when touching check point
-            Debug.Log("CheckPoint change to " + PositionCP.ToString());
+            Debug.Log("CheckPoint change to " + checkPointPosition.ToString());
             Destroy(col.gameObject);
         }
 

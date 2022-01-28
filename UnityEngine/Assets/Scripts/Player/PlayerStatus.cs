@@ -13,7 +13,7 @@ public class PlayerStatus : MonoBehaviour
     public const string PLAYER_STATUS_FILE_NAME = "PlayerStatus.dat";
 
     // Unity component
-    public Text healthTextBox;
+    // public Text healthTextBox;
 
     // Public value
     public int sceneIndex;
@@ -24,12 +24,12 @@ public class PlayerStatus : MonoBehaviour
 
     private void Start()
     {
-        healthTextBox.text = "Health: " + health.ToString();
+        // healthTextBox.text = "Health: " + health.ToString();
 
-        // Start new course
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        courseStart = GetComponent<Transform>().position;
-        SavePlayerStatusFile();
+        // // Start new course
+        // sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        // courseStart = GetComponent<Transform>().position;
+        // SavePlayerStatusFile();
 
         canSpawn = true;
         courseClearCondition = false;
@@ -44,7 +44,7 @@ public class PlayerStatus : MonoBehaviour
             // TODO Game end
         }
 
-        healthTextBox.text = "Health: " + health.ToString();
+        // healthTextBox.text = "Health: " + health.ToString();
     }
 
     #endregion
@@ -55,7 +55,6 @@ public class PlayerStatus : MonoBehaviour
         public int sav_sceneIndex;
         public int sav_health;
         public Vector3 sav_courseStart;
-        public bool sav_courseClearCondition;
     }
 
     #region Save player status file
@@ -67,7 +66,6 @@ public class PlayerStatus : MonoBehaviour
             sav_sceneIndex = sceneIndex,
             sav_health = health,
             sav_courseStart = courseStart,
-            sav_courseClearCondition = courseClearCondition,
         };
 
         SaveSystem.SaveFile(PLAYER_STATUS_FILE_NAME, playerStatusData);
@@ -84,7 +82,6 @@ public class PlayerStatus : MonoBehaviour
         sceneIndex = loadData.sav_sceneIndex;
         health = loadData.sav_health;
         courseStart = loadData.sav_courseStart;
-        courseClearCondition = loadData.sav_courseClearCondition;
     }
 
     #endregion
