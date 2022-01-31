@@ -27,6 +27,23 @@ public class ESC : MonoBehaviour
 
     public void ClickRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Go to check point
+        GameObject.FindWithTag("Player").transform.position = GetComponent<PlayerStatus>().courseStart;
+
+        // Remove all spawn bricks
+        var bricks = GameObject.FindGameObjectsWithTag("Spawn");
+        foreach (var brick in bricks)
+        {
+            Destroy(brick);
+        }
+
+        // Reset button
+        var buttons = GameObject.FindGameObjectsWithTag("BrickButton");
+        foreach (var button in buttons)
+        {
+            button.GetComponent<BrickInteraction>().brickNumber = button.GetComponent<BrickInteraction>().brickInit;
+            button.GetComponent<BrickInteraction>().remainTextBox.text =
+                button.GetComponent<BrickInteraction>().brickNumber.ToString();
+        }
     }
 }

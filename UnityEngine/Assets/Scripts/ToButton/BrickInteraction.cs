@@ -17,11 +17,13 @@ public class BrickInteraction : MonoBehaviour
     #region Public value
 
     public int brickNumber;
+    [HideInInspector] public int brickInit;
 
     #endregion
 
     private void Start()
     {
+        brickInit = brickNumber;
         remainTextBox.text = "Brick remain: " + brickNumber.ToString();
 
         // Get player game object
@@ -57,6 +59,7 @@ public class BrickInteraction : MonoBehaviour
         var newBrick = GameObject.Instantiate(brick);
         newBrick.transform.position =
             new Vector3(playerPosition.x + 2.5f, playerPosition.y + 1.5f, playerPosition.z);
+        newBrick.tag = "Spawn";
 
         var color = newBrick.GetComponent<SpriteRenderer>().color;
         newBrick.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 0.5f);

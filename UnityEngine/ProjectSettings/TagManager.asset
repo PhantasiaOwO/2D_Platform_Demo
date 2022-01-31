@@ -10,6 +10,8 @@ TagManager:
   - LoadTrigger
   - UnloadTrigger
   - CheckPoint
+  - BrickButton
+  - Spawn
   layers:
   - Default
   - TransparentFX

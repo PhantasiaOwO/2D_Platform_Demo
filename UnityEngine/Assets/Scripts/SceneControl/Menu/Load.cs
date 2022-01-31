@@ -71,5 +71,6 @@ public class Load : MonoBehaviour
         SceneManager.UnloadSceneAsync(LOAD_AREA);
 
         GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
+        Destroy(GameObject.FindWithTag("UnloadTrigger"));
     }
 }

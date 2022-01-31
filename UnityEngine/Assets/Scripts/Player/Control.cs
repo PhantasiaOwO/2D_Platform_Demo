@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -108,7 +109,7 @@ public class Control : MonoBehaviour
 
     #endregion
 
-    #region Fallout action
+    #region Dead action
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -121,16 +122,34 @@ public class Control : MonoBehaviour
     {
         if (!_isBeingHurt) return;
 
-        StartCoroutine(RunFallOut(GetComponent<PlayerStatus>().courseStart));
-        _isBeingHurt = false;
+        StartCoroutine(ResetScene(GetComponent<PlayerStatus>().courseStart));
     }
 
-    private IEnumerator RunFallOut(Vector3 checkPoint)
+    private IEnumerator ResetScene(Vector3 checkPoint)
     {
         yield return new WaitForSeconds(3f);
 
-        
-        yield break;
+        // Go to check point
+        playerRigidbody.transform.position = GetComponent<PlayerStatus>().courseStart;
+
+        // Remove all spawn bricks
+        var bricks = GameObject.FindGameObjectsWithTag("Spawn");
+        foreach (var brick in bricks)
+        {
+            Destroy(brick);
+        }
+
+        // Reset button
+        var buttons = GameObject.FindGameObjectsWithTag("BrickButton");
+        foreach (var button in buttons)
+        {
+            button.GetComponent<BrickInteraction>().brickNumber = button.GetComponent<BrickInteraction>().brickInit;
+            button.GetComponent<BrickInteraction>().remainTextBox.text =
+                button.GetComponent<BrickInteraction>().brickNumber.ToString();
+            Debug.Log("Reset button");
+        }
+
+        _isBeingHurt = false;
     }
 
     #endregion
@@ -259,7 +278,10 @@ public class Control : MonoBehaviour
         GameObject.FindWithTag("MainCamera").GetComponentInChildren<CinemachineConfiner>().m_BoundingShape2D =
             GameObject.FindWithTag("BackGround").GetComponent<Collider2D>();
 
+        Debug.Log("Rebind cam");
+
         // Rebind player scripts of UI canvas
+        // BUG Can not rebind after scene change
         GetComponent<Interaction>().conditionUI = GameObject.Find("UIGame/Condition");
     }
 

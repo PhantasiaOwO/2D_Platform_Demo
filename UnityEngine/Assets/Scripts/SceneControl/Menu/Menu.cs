@@ -44,7 +44,7 @@ public class Menu : MonoBehaviour
         SceneManager.MoveGameObjectToScene(menuEscape, targetCourse);
 
         // Game start
-        GameObject.FindWithTag("Player").transform.position = new Vector3(0, 0, 0);
+        GameObject.FindWithTag("Player").transform.position = new Vector3(-12, 0, 0);
 
         // Unload other scenes
         SceneManager.UnloadSceneAsync("Menu");

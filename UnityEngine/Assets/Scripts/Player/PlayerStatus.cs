@@ -11,10 +11,7 @@ public class PlayerStatus : MonoBehaviour
     // Const
     private const string PLAYER_STATUS_KEY = "PlayerStatus";
     public const string PLAYER_STATUS_FILE_NAME = "PlayerStatus.dat";
-
-    // Unity component
-    // public Text healthTextBox;
-
+    
     // Public value
     public int sceneIndex;
     public int health;

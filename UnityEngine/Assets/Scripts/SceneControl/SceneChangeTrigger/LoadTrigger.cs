@@ -27,6 +27,12 @@ public class LoadTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player")) return;
+        if (!GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseClearCondition)
+        {
+            // TODO Notice no course clear condition 
+            return;
+        }
+
         if (_isTriggered) return;
 
         DontDestroyOnLoad(player);
@@ -48,6 +54,8 @@ public class LoadTrigger : MonoBehaviour
         {
             yield return null;
         }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1));
 
         // Move vital game object to new scene
         var nextScene = SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1);
