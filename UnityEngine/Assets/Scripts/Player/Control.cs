@@ -116,6 +116,8 @@ public class Control : MonoBehaviour
         if (!col.collider.CompareTag("DeadZone")) return;
         _isBeingHurt = true;
         Debug.Log("trigger enter");
+
+        GetComponent<PlayerStatus>().cntDeath++;
     }
 
     private void BeHurt()

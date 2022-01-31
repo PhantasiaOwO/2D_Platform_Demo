@@ -35,14 +35,11 @@ public class LoadTrigger : MonoBehaviour
 
         if (_isTriggered) return;
 
-        DontDestroyOnLoad(player);
-        DontDestroyOnLoad(camera);
-        DontDestroyOnLoad(menuEscape);
-
         StartCoroutine(LoadSceneAsync());
         _isTriggered = true;
 
-        Destroy(this.gameObject);
+        // If destroy, coroutine will be closed, which can't ensure the codes are run
+        // Destroy(this.gameObject);
     }
 
     IEnumerator LoadSceneAsync()
@@ -55,14 +52,21 @@ public class LoadTrigger : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1));
+        DontDestroyOnLoad(player);
+        DontDestroyOnLoad(camera);
+        DontDestroyOnLoad(menuEscape);
+
+        // SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1));
+        // Debug.Log("Change active scene");
 
         // Move vital game object to new scene
         var nextScene = SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1);
         SceneManager.MoveGameObjectToScene(player, nextScene);
         SceneManager.MoveGameObjectToScene(camera, nextScene);
         SceneManager.MoveGameObjectToScene(menuEscape, nextScene);
+        Debug.Log("Move Game object");
 
         // Unload last scene will execute when enter unload trigger("UnloadTrigger.cs")
+        SceneManager.UnloadSceneAsync(thisSceneIndex);
     }
 }

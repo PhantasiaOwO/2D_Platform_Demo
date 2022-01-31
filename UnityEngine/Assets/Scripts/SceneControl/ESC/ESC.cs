@@ -15,20 +15,24 @@ public class ESC : MonoBehaviour
 
     public void ClickResume()
     {
+        Debug.Log("Escape: Click resume");
         gameObjectEsc.SetActive(false);
         Time.timeScale = 1;
     }
 
     public void ClickHomePage()
     {
-        // TODO Print unsaved status
-        SceneManager.LoadScene("Scenes/Menu");
+        Debug.Log("Escape: Click home");
+        // TODO Print unsaved status to confirm twice
+        SceneManager.LoadScene("Scenes/Menu", LoadSceneMode.Single);
     }
 
     public void ClickRestart()
     {
+        Debug.Log("Escape: Click restart");
         // Go to check point
-        GameObject.FindWithTag("Player").transform.position = GetComponent<PlayerStatus>().courseStart;
+        GameObject.FindWithTag("Player").transform.position =
+            GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseStart;
 
         // Remove all spawn bricks
         var bricks = GameObject.FindGameObjectsWithTag("Spawn");
@@ -45,5 +49,11 @@ public class ESC : MonoBehaviour
             button.GetComponent<BrickInteraction>().remainTextBox.text =
                 button.GetComponent<BrickInteraction>().brickNumber.ToString();
         }
+
+        gameObjectEsc.SetActive(false);
+        Time.timeScale = 1;
+
+        // Data count
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().cntRestart++;
     }
 }

@@ -8,10 +8,10 @@ TagManager:
   - DeadZone
   - BackGround
   - LoadTrigger
-  - UnloadTrigger
   - CheckPoint
   - BrickButton
   - Spawn
+  - RebindTrigger
   layers:
   - Default
   - TransparentFX

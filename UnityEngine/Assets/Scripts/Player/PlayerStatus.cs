@@ -11,13 +11,18 @@ public class PlayerStatus : MonoBehaviour
     // Const
     private const string PLAYER_STATUS_KEY = "PlayerStatus";
     public const string PLAYER_STATUS_FILE_NAME = "PlayerStatus.dat";
-    
+
     // Public value
     public int sceneIndex;
     public int health;
     public Vector3 courseStart; // It will modified in "CollectionInteraction.cs"
     public bool courseClearCondition;
     public bool canSpawn;
+
+    // Data count value
+    [HideInInspector] public int cntDeath;
+    [HideInInspector] public int cntPlace;
+    [HideInInspector] public int cntRestart;
 
     private void Start()
     {
@@ -52,6 +57,9 @@ public class PlayerStatus : MonoBehaviour
         public int sav_sceneIndex;
         public int sav_health;
         public Vector3 sav_courseStart;
+        public int sav_cntDeath;
+        public int sav_cntPlace;
+        public int sav_cntRestart;
     }
 
     #region Save player status file
@@ -63,6 +71,9 @@ public class PlayerStatus : MonoBehaviour
             sav_sceneIndex = sceneIndex,
             sav_health = health,
             sav_courseStart = courseStart,
+            sav_cntDeath = cntDeath,
+            sav_cntPlace = cntPlace,
+            sav_cntRestart = cntRestart,
         };
 
         SaveSystem.SaveFile(PLAYER_STATUS_FILE_NAME, playerStatusData);
@@ -79,6 +90,9 @@ public class PlayerStatus : MonoBehaviour
         sceneIndex = loadData.sav_sceneIndex;
         health = loadData.sav_health;
         courseStart = loadData.sav_courseStart;
+        cntDeath = loadData.sav_cntDeath;
+        cntPlace = loadData.sav_cntPlace;
+        cntRestart = loadData.sav_cntRestart;
     }
 
     #endregion

@@ -78,5 +78,8 @@ public class BrickInteraction : MonoBehaviour
 
         // Count and print brick number
         remainTextBox.text = (--brickNumber).ToString();
+
+        // Count data
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().cntPlace++;
     }
 }
