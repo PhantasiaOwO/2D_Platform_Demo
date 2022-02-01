@@ -34,7 +34,8 @@ public class Control : MonoBehaviour
 
     private bool _isJumping;
     private bool _isBuilding;
-    private bool _isBeingHurt;
+    private bool _hurtTrigger;
+    private bool _resetTrigger;
     private bool _isPaused;
 
     #endregion
@@ -61,7 +62,8 @@ public class Control : MonoBehaviour
         // Initialize boolean
         _isJumping = false;
         _isBuilding = false;
-        _isBeingHurt = false;
+        _hurtTrigger = false;
+        _resetTrigger = false;
         _isPaused = false;
 
         Time.timeScale = 1;
@@ -95,6 +97,8 @@ public class Control : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_resetTrigger) return;
+
         // When building, lock the velocity and pass "Move" and "Jump"
         if (_isBuilding)
         {
@@ -114,7 +118,7 @@ public class Control : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!col.collider.CompareTag("DeadZone")) return;
-        _isBeingHurt = true;
+        _hurtTrigger = true;
         Debug.Log("trigger enter");
 
         GetComponent<PlayerStatus>().cntDeath++;
@@ -122,9 +126,20 @@ public class Control : MonoBehaviour
 
     private void BeHurt()
     {
-        if (!_isBeingHurt) return;
+        if (!_hurtTrigger) return;
 
         StartCoroutine(ResetScene(GetComponent<PlayerStatus>().courseStart));
+
+        _hurtTrigger = false;
+        _resetTrigger = true;
+        
+        playerAnimator.SetBool(BlnAnimIdle, true);
+        playerAnimator.SetBool(BlnAnimJump, false);
+        playerAnimator.SetBool(BlnAnimFall, false);
+        playerAnimator.SetBool(BlnAnimSummon, false);
+        playerAnimator.SetBool(BlnAnimRun, false);
+        playerAnimator.SetFloat(FltAnimRun, 0f);
+        
     }
 
     private IEnumerator ResetScene(Vector3 checkPoint)
@@ -151,7 +166,8 @@ public class Control : MonoBehaviour
             Debug.Log("Reset button");
         }
 
-        _isBeingHurt = false;
+        _resetTrigger = false;
+        
     }
 
     #endregion

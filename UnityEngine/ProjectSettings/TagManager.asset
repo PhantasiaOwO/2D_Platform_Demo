@@ -12,6 +12,7 @@ TagManager:
   - BrickButton
   - Spawn
   - RebindTrigger
+  - DialogTrigger
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 4224050865
+    locked: 0
+  - name: Placement
+    uniqueID: 2734787465
     locked: 0

@@ -14,7 +14,7 @@ public class BrickPhysics : MonoBehaviour
     public GameObject sourceButton;
 
     #endregion
-    
+
     #region Status boolean
 
     private bool _canMove;
@@ -58,6 +58,7 @@ public class BrickPhysics : MonoBehaviour
 
     #region DeadZone
 
+    // Only trigger DeadZone can destroy brick
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("DeadZone")) return;

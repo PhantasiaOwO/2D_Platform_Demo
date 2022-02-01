@@ -57,8 +57,11 @@ public class BrickInteraction : MonoBehaviour
         // Spawn brick
         var playerPosition = player.transform.position;
         var newBrick = GameObject.Instantiate(brick);
-        newBrick.transform.position =
-            new Vector3(playerPosition.x + 2.5f, playerPosition.y + 1.5f, playerPosition.z);
+
+        newBrick.transform.position = new Vector3(
+            playerPosition.x + player.transform.localScale.x / 0.02f * 1.5f,
+            playerPosition.y + 1.5f,
+            playerPosition.z);
         newBrick.tag = "Spawn";
 
         var color = newBrick.GetComponent<SpriteRenderer>().color;
