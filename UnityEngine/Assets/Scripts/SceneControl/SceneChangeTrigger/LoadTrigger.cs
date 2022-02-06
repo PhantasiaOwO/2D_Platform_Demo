@@ -5,7 +5,6 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using Scene = UnityEditor.SearchService.Scene;
 
 /**
  * 卸载场景前移动必要的组件（玩家、摄像机、Escape菜单、加载触发器）
