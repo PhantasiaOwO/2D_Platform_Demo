@@ -31,25 +31,25 @@ public class Menu : MonoBehaviour
         // Get game object
         var player = GameObject.FindWithTag("Player");
         var camera = GameObject.FindWithTag("MainCamera");
-        var menuEscape = GameObject.Find("UIEscape");
+        var publicUI = GameObject.Find("UIPublic");
 
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(camera);
-        DontDestroyOnLoad(menuEscape);
+        DontDestroyOnLoad(publicUI);
 
         // Move game object
         var targetCourse = SceneManager.GetSceneByName(FIRST_COURSE);
         SceneManager.MoveGameObjectToScene(player, targetCourse);
         SceneManager.MoveGameObjectToScene(camera, targetCourse);
-        SceneManager.MoveGameObjectToScene(menuEscape, targetCourse);
+        SceneManager.MoveGameObjectToScene(publicUI, targetCourse);
 
         // Game start
-        GameObject.FindWithTag("Player").transform.position = new Vector3(-12, 0, 0);
+        GameObject.FindWithTag("Player").transform.position = new Vector3(-14.5f, -0.5f, 0);
 
         // Unload other scenes
         SceneManager.UnloadSceneAsync("Menu");
         SceneManager.UnloadSceneAsync(LOAD_AREA);
-        
+
         GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
     }
 

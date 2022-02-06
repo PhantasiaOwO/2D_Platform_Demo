@@ -7,11 +7,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Scene = UnityEditor.SearchService.Scene;
 
+/**
+ * 卸载场景前移动必要的组件（玩家、摄像机、Escape菜单、加载触发器）
+ * 通过订阅事件检测场景卸载（触发器触发时），避免因为多场景导致的GameObject绑定的问题
+ * 完成所有工作后Destroy这个GameObject
+ */
 public class LoadTrigger : MonoBehaviour
 {
     public GameObject player;
     public new GameObject camera;
-    public GameObject menuEscape;
+    public GameObject publicUI;
 
     private bool _isTriggered;
 
@@ -19,7 +24,7 @@ public class LoadTrigger : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         camera = GameObject.FindWithTag("MainCamera");
-        menuEscape = GameObject.Find("UIEscape");
+        publicUI = GameObject.Find("UIPublic");
 
         _isTriggered = false;
     }
@@ -29,11 +34,17 @@ public class LoadTrigger : MonoBehaviour
         if (!col.CompareTag("Player")) return;
         if (!GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseClearCondition)
         {
-            // TODO Notice no course clear condition 
+            // Show no course clear condition notice
+            // OLD: GameObject.FindWithTag("Player").GetComponent<NoticeDialog>().ShowNoCourseClearCondition();
+            var notice = GameObject.FindWithTag("Player").GetComponent<NoticeDialog>();
+            notice.ShowNotice(notice.noCourseClearConditionNotice);
             return;
         }
 
         if (_isTriggered) return;
+
+        // Subscribe event after trigger enter
+        SceneManager.sceneUnloaded += OnSceneUnload;
 
         StartCoroutine(LoadSceneAsync());
         _isTriggered = true;
@@ -54,19 +65,25 @@ public class LoadTrigger : MonoBehaviour
 
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(camera);
-        DontDestroyOnLoad(menuEscape);
-
-        // SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1));
-        // Debug.Log("Change active scene");
+        DontDestroyOnLoad(publicUI);
+        DontDestroyOnLoad(this.gameObject);
 
         // Move vital game object to new scene
         var nextScene = SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1);
         SceneManager.MoveGameObjectToScene(player, nextScene);
         SceneManager.MoveGameObjectToScene(camera, nextScene);
-        SceneManager.MoveGameObjectToScene(menuEscape, nextScene);
+        SceneManager.MoveGameObjectToScene(publicUI, nextScene);
+        SceneManager.MoveGameObjectToScene(this.gameObject, nextScene);
         Debug.Log("Move Game object");
 
-        // Unload last scene will execute when enter unload trigger("UnloadTrigger.cs")
         SceneManager.UnloadSceneAsync(thisSceneIndex);
+    }
+
+    private void OnSceneUnload(UnityEngine.SceneManagement.Scene arg0)
+    {
+        GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseClearCondition = false;
+        // TODO Turn off game object condition
+        Destroy(this.gameObject);
     }
 }

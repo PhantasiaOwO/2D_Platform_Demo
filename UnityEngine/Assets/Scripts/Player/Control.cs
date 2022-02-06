@@ -128,18 +128,21 @@ public class Control : MonoBehaviour
     {
         if (!_hurtTrigger) return;
 
-        StartCoroutine(ResetScene(GetComponent<PlayerStatus>().courseStart));
+        GetComponent<NoticeDialog>().ShowDeathNotice();
 
+        // Trigger
         _hurtTrigger = false;
         _resetTrigger = true;
-        
+
+        // Animation
         playerAnimator.SetBool(BlnAnimIdle, true);
         playerAnimator.SetBool(BlnAnimJump, false);
         playerAnimator.SetBool(BlnAnimFall, false);
         playerAnimator.SetBool(BlnAnimSummon, false);
         playerAnimator.SetBool(BlnAnimRun, false);
         playerAnimator.SetFloat(FltAnimRun, 0f);
-        
+
+        StartCoroutine(ResetScene(GetComponent<PlayerStatus>().courseStart));
     }
 
     private IEnumerator ResetScene(Vector3 checkPoint)
@@ -167,7 +170,8 @@ public class Control : MonoBehaviour
         }
 
         _resetTrigger = false;
-        
+
+        GetComponent<NoticeDialog>().HideDeathNotice();
     }
 
     #endregion
@@ -297,10 +301,6 @@ public class Control : MonoBehaviour
             GameObject.FindWithTag("BackGround").GetComponent<Collider2D>();
 
         Debug.Log("Rebind cam");
-
-        // Rebind player scripts of UI canvas
-        // BUG Can not rebind after scene change
-        GetComponent<Interaction>().conditionUI = GameObject.Find("UIGame/Condition");
     }
 
     #endregion

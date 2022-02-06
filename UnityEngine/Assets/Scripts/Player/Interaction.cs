@@ -12,9 +12,8 @@ public class Interaction : MonoBehaviour
 
     private void Start()
     {
-        conditionUI = GameObject.Find("UIGame/Condition");
-
         GetComponent<PlayerStatus>().courseClearCondition = false;
+        // TODO Add animator variable
         conditionUI.SetActive(false);
     }
 
@@ -28,6 +27,7 @@ public class Interaction : MonoBehaviour
         {
             Destroy(col.gameObject);
             GetComponent<PlayerStatus>().courseClearCondition = true;
+            // TODO Add animator variable
             conditionUI.SetActive(true);
         }
 

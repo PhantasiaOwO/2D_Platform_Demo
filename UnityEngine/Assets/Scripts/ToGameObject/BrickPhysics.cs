@@ -59,12 +59,20 @@ public class BrickPhysics : MonoBehaviour
     #region DeadZone
 
     // Only trigger DeadZone can destroy brick
+    // It means that only fallen can trigger this method
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("DeadZone")) return;
 
+        Debug.Log("Brick fall out");
+        
         Destroy(brickCollider.gameObject);
-        // TODO Print deleted information
+
+        // Print deleted information
+        // OLD: GameObject.FindWithTag("Player").GetComponent<NoticeDialog>().ShowBrickDestroyNotice();
+        var notice = GameObject.FindWithTag("Player").GetComponent<NoticeDialog>();
+        notice.ShowNotice(notice.brickDestroyNotice);
+        
         // Modify the value of "BrickInteraction"
         var brickNumberTemp = ++sourceButton.GetComponent<BrickInteraction>().brickNumber;
         sourceButton.GetComponent<BrickInteraction>().remainTextBox.text = brickNumberTemp.ToString();

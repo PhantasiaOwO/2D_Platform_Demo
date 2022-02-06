@@ -27,30 +27,36 @@ public class BrickInteraction : MonoBehaviour
         remainTextBox.text = "Brick remain: " + brickNumber.ToString();
 
         // Get player game object
-        // TODO Need test in scene change
         player = GameObject.Find("Player");
     }
 
     public void OnClick()
     {
+        var notice = GameObject.FindWithTag("Player").GetComponent<NoticeDialog>();
         if (!GameObject.Find("Player").GetComponent<Control>().isOnGround)
         {
-            // TODO Didn't standing on the ground
+            // Notice didn't standing on the ground
+            notice.ShowNotice(notice.notOnGroundNotice);
+
             Debug.Log("BrickInteraction: Didn't stand on the ground");
             return;
         }
 
         if (!GameObject.Find("Player").GetComponent<PlayerStatus>().canSpawn)
         {
-            // TODO Print last brick unlock status information
+            // Notice Print last brick unlock status information
+            notice.ShowNotice(notice.notLockBrickNotice);
+
             Debug.Log("BrickInteraction: Button banned");
             return;
         }
 
         if (brickNumber <= 0)
         {
-            Debug.Log("BrickInteraction: Brick used up");
             // TODO Print used up information
+            notice.ShowNotice(notice.notEnoughBrickNotice);
+
+            Debug.Log("BrickInteraction: Brick used up");
             return;
         }
 

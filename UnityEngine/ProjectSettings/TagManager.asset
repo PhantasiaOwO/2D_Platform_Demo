@@ -11,8 +11,8 @@ TagManager:
   - CheckPoint
   - BrickButton
   - Spawn
-  - RebindTrigger
   - DialogTrigger
+  - Condition
   layers:
   - Default
   - TransparentFX

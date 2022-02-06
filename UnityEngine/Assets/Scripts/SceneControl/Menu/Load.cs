@@ -51,17 +51,17 @@ public class Load : MonoBehaviour
         // Get game object
         var player = GameObject.FindWithTag("Player");
         var camera = GameObject.FindWithTag("MainCamera");
-        var menuEscape = GameObject.Find("UIEscape");
+        var publicUI = GameObject.Find("UIPublic");
 
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(camera);
-        DontDestroyOnLoad(menuEscape);
+        DontDestroyOnLoad(publicUI);
 
         // Move game object
         var targetCourse = SceneManager.GetSceneByBuildIndex(_sceneIndex);
         SceneManager.MoveGameObjectToScene(player, targetCourse);
         SceneManager.MoveGameObjectToScene(camera, targetCourse);
-        SceneManager.MoveGameObjectToScene(menuEscape, targetCourse);
+        SceneManager.MoveGameObjectToScene(publicUI, targetCourse);
 
         // Check point 
         GameObject.FindWithTag("Player").transform.position = _start;
@@ -71,6 +71,5 @@ public class Load : MonoBehaviour
         SceneManager.UnloadSceneAsync(LOAD_AREA);
 
         GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
-        Destroy(GameObject.FindWithTag("UnloadTrigger"));
     }
 }

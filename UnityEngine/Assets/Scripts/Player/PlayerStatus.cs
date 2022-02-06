@@ -43,7 +43,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (health <= 0)
         {
-            // TODO Game end
+            // TODO Game end notice
         }
 
         // healthTextBox.text = "Health: " + health.ToString();
