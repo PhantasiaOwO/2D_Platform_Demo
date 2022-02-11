@@ -53,9 +53,12 @@ TagManager:
   - name: BackGround
     uniqueID: 3504545917
     locked: 0
-  - name: Ground
+  - name: Ground(Course)
     uniqueID: 4224050865
     locked: 0
   - name: Placement
     uniqueID: 2734787465
+    locked: 0
+  - name: CourseClearCondition
+    uniqueID: 1431528597
     locked: 0

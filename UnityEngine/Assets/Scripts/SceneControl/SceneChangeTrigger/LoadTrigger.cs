@@ -62,10 +62,6 @@ public class LoadTrigger : MonoBehaviour
             yield return null;
         }
 
-        DontDestroyOnLoad(player);
-        DontDestroyOnLoad(camera);
-        DontDestroyOnLoad(publicUI);
-        DontDestroyOnLoad(this.gameObject);
 
         // Move vital game object to new scene
         var nextScene = SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1);

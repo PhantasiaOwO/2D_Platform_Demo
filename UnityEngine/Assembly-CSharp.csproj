@@ -52,10 +52,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\SceneControl\Menu\ExitButton.cs" />
      <Compile Include="Assets\Scripts\Player\Control.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\Menu\Load.cs" />
+     <Compile Include="Assets\Scripts\SceneControl\Menu\LoadButton.cs" />
      <Compile Include="Assets\Scripts\ToButton\BrickInteraction.cs" />
      <Compile Include="Assets\Scripts\SceneControl\ESC\ESC.cs" />
+     <Compile Include="Assets\Scripts\SceneControl\Menu\LoadShade.cs" />
      <Compile Include="Assets\Scripts\SceneControl\SceneChangeTrigger\RebindTrigger.cs" />
      <Compile Include="Assets\Scripts\Player\Interaction.cs" />
      <Compile Include="Assets\Scripts\SceneControl\SceneChangeTrigger\LoadTrigger.cs" />
@@ -65,7 +67,7 @@
      <Compile Include="Assets\Scripts\ToGameObject\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\Connection.cs" />
      <Compile Include="Assets\Scripts\Player\NoticeDialog.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\Menu\Menu.cs" />
+     <Compile Include="Assets\Scripts\SceneControl\Menu\StartButton.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationRun.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
