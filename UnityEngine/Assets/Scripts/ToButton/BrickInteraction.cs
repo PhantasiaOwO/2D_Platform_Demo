@@ -24,7 +24,7 @@ public class BrickInteraction : MonoBehaviour
     private void Start()
     {
         brickInit = brickNumber;
-        remainTextBox.text = "Brick remain: " + brickNumber.ToString();
+        remainTextBox.text = brickNumber.ToString();
 
         // Get player game object
         player = GameObject.Find("Player");
