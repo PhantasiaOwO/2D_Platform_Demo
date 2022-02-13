@@ -7,13 +7,16 @@ ScriptsOnlyBuild:
     - Connection
     - Control
     - DialogTrigger
-    - ESC
     - ExitButton
     - Interaction
+    - LoadButton
     - LoadShade
     - LoadTrigger
     - NoticeDialog
     - PlayerStatus
+    - Restart
+    - SceneControl.ESC.HomePage
+    - SceneControl.ESC.Resume
     - StartButton
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -28,11 +31,8 @@ ScriptsOnlyBuild:
     - UnityEngine.U2D.Animation.SpriteSkin
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -49,10 +49,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -135,9 +133,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4984}
     - Class: 114
-      Script: {instanceID: 5510}
+      Script: {instanceID: 5008}
     - Class: 114
-      Script: {instanceID: 5678}
+      Script: {instanceID: 5334}
+    - Class: 114
+      Script: {instanceID: 5514}
+    - Class: 114
+      Script: {instanceID: 5682}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -204,7 +206,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4242}
     - Class: 114
-      Script: {instanceID: 5170}
+      Script: {instanceID: 5172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -874,7 +876,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4242}
     - Class: 114
-      Script: {instanceID: 5260}
+      Script: {instanceID: 5262}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -947,7 +949,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4242}
     - Class: 114
-      Script: {instanceID: 5170}
+      Script: {instanceID: 5172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1026,11 +1028,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3616}
     - Class: 114
-      Script: {instanceID: 5098}
+      Script: {instanceID: 5100}
     - Class: 114
-      Script: {instanceID: 5528}
+      Script: {instanceID: 5532}
     - Class: 114
-      Script: {instanceID: 5574}
+      Script: {instanceID: 5578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1174,6 +1176,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Control
+  - hash:
+      serializedVersion: 2
+      Hash: 7de3245f00bbb1a30cecfa3201a40afd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LoadButton
   - hash:
       serializedVersion: 2
       Hash: 6225eb0973ab0af667bc5f9d1b1b18de
@@ -1401,7 +1409,7 @@ ScriptsOnlyBuild:
       Hash: acadec8031d363204f9bd1029b3192fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ESC
+    className: Restart
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -1734,6 +1742,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: acadec8031d363204f9bd1029b3192fc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: SceneControl.ESC
+    className: Resume
+  - hash:
+      serializedVersion: 2
       Hash: 1e3d6222ff533d213aab144eb854a53b
     assemblyName: Cinemachine.dll
     namespaceName: 
@@ -1810,6 +1824,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.Experimental.U2D.Animation
     className: SpriteLibraryAsset
+  - hash:
+      serializedVersion: 2
+      Hash: acadec8031d363204f9bd1029b3192fc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: SceneControl.ESC
+    className: HomePage
   - hash:
       serializedVersion: 2
       Hash: 56df1fa7cea034df9863fe5a24200a32
