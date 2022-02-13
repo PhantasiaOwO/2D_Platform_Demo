@@ -490,7 +490,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7300766852127343171, guid: 0aeb64d6b2a33124ea983945c2eeb5c8, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7300766852127343171, guid: 0aeb64d6b2a33124ea983945c2eeb5c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -785,7 +785,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -790421379
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730c911464148054487bb3efd7ef0d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -873,7 +873,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1026881823}
   remainTextBox: {fileID: 1648899984}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &787295296
 MonoBehaviour:
@@ -1099,7 +1099,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -790421379
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730c911464148054487bb3efd7ef0d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 917459329}
   m_Layer: 0
   m_Name: BackGround
-  m_TagString: Untagged
+  m_TagString: BackGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1212,7 +1212,7 @@ Transform:
   - {fileID: 731010395}
   - {fileID: 866573848}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1026881823 stripped
 GameObject:
@@ -1274,7 +1274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -790421379
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730c911464148054487bb3efd7ef0d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1651,7 +1651,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -70916431
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1949,7 +1949,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -790421379
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730c911464148054487bb3efd7ef0d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2032,7 +2032,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1156270241}
   remainTextBox: {fileID: 1861157411}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1571533119
 MonoBehaviour:
@@ -2215,7 +2215,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -70916431
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12347,7 +12347,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 778618625}
   remainTextBox: {fileID: 1379702636}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1729082735
 MonoBehaviour:
@@ -12519,7 +12519,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -790421379
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730c911464148054487bb3efd7ef0d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12563,7 +12563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5651823887753855031, guid: a3130771d758a2242beaabff551dbd44, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5651823887753855031, guid: a3130771d758a2242beaabff551dbd44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12741,7 +12741,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -790421379
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 730c911464148054487bb3efd7ef0d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12824,7 +12824,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 101491260}
   remainTextBox: {fileID: 474317954}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1987897964
 MonoBehaviour:

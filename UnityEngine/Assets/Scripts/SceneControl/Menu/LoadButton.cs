@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Load : MonoBehaviour
+public class LoadButton : MonoBehaviour
 {
     private const string LOAD_AREA = "000";
 
@@ -39,6 +39,8 @@ public class Load : MonoBehaviour
     {
         Debug.Log("Click load button");
 
+        shade.SetActive(true);
+        
         StartCoroutine(LoadSceneAsync());
     }
 
@@ -56,12 +58,18 @@ public class Load : MonoBehaviour
         var player = GameObject.FindWithTag("Player");
         var camera = GameObject.FindWithTag("MainCamera");
         var publicUI = GameObject.Find("UIPublic");
+        
+        DontDestroyOnLoad(player);
+        DontDestroyOnLoad(camera);
+        DontDestroyOnLoad(publicUI);
 
         // Move game object
         var targetCourse = SceneManager.GetSceneByBuildIndex(_sceneIndex);
         SceneManager.MoveGameObjectToScene(player, targetCourse);
         SceneManager.MoveGameObjectToScene(camera, targetCourse);
         SceneManager.MoveGameObjectToScene(publicUI, targetCourse);
+        SceneManager.MoveGameObjectToScene(shade, targetCourse);
+        SceneManager.MoveGameObjectToScene(buttonParentCanvas, targetCourse);
 
         // Check point 
         GameObject.FindWithTag("Player").transform.position = _start;
@@ -85,7 +93,7 @@ public class Load : MonoBehaviour
 
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSecondsRealtime(1.2f);
         buttonParentCanvas.SetActive(false);
         shade.SetActive(false);
         shade.GetComponent<LoadShade>().ShadeHide();

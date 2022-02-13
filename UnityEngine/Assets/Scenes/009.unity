@@ -14207,7 +14207,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1026881823}
   remainTextBox: {fileID: 1648899984}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &787295296
 MonoBehaviour:
@@ -14391,7 +14391,7 @@ GameObject:
   - component: {fileID: 917459329}
   m_Layer: 0
   m_Name: BackGround
-  m_TagString: Untagged
+  m_TagString: BackGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15416,7 +15416,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1581696090}
   remainTextBox: {fileID: 1861157411}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1571533119
 MonoBehaviour:
@@ -15769,7 +15769,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 671004391}
   remainTextBox: {fileID: 1379702636}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1729082735
 MonoBehaviour:
@@ -16021,7 +16021,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 105798382}
   remainTextBox: {fileID: 474317954}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1987897964
 MonoBehaviour:

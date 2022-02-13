@@ -827,7 +827,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1026881823}
   remainTextBox: {fileID: 1648899984}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &787295296
 MonoBehaviour:
@@ -2171,7 +2171,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1214891249}
   remainTextBox: {fileID: 1861157411}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1571533119
 MonoBehaviour:
@@ -15335,7 +15335,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 430195104}
   remainTextBox: {fileID: 1379702636}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1729082735
 MonoBehaviour:
@@ -15734,7 +15734,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1439394226208016073, guid: 6b808e4752ad1a14091a762f3d20a460, type: 3}
   remainTextBox: {fileID: 474317954}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1987897964
 MonoBehaviour:

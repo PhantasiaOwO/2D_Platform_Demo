@@ -73,7 +73,7 @@ public class StartButton : MonoBehaviour
 
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSecondsRealtime(1.2f);
         buttonParentCanvas.SetActive(false);
         shade.SetActive(false);
         shade.GetComponent<LoadShade>().ShadeHide();

@@ -13,6 +13,8 @@ using UnityEngine.UIElements;
  */
 public class LoadTrigger : MonoBehaviour
 {
+    const string TEMP_NAME = "LoadTrigger(Old)";
+    
     public GameObject player;
     public new GameObject camera;
     public GameObject publicUI;
@@ -45,6 +47,8 @@ public class LoadTrigger : MonoBehaviour
         // Subscribe event after trigger enter
         SceneManager.sceneUnloaded += OnSceneUnload;
 
+        this.gameObject.name = TEMP_NAME;
+        
         StartCoroutine(LoadSceneAsync());
         _isTriggered = true;
 
@@ -62,7 +66,6 @@ public class LoadTrigger : MonoBehaviour
             yield return null;
         }
 
-
         // Move vital game object to new scene
         var nextScene = SceneManager.GetSceneByBuildIndex(thisSceneIndex + 1);
         SceneManager.MoveGameObjectToScene(player, nextScene);
@@ -71,6 +74,13 @@ public class LoadTrigger : MonoBehaviour
         SceneManager.MoveGameObjectToScene(this.gameObject, nextScene);
         Debug.Log("Move Game object");
 
+        // Move all spawned bricks
+        var bricks = GameObject.FindGameObjectsWithTag("Spawn");
+        foreach (var brick in bricks)
+        {
+            SceneManager.MoveGameObjectToScene(brick,nextScene);
+        }
+        
         SceneManager.UnloadSceneAsync(thisSceneIndex);
     }
 
@@ -79,6 +89,6 @@ public class LoadTrigger : MonoBehaviour
         GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
         GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseClearCondition = false;
         // TODO Turn off game object condition
-        Destroy(this.gameObject);
+        Destroy(GameObject.Find(TEMP_NAME));
     }
 }

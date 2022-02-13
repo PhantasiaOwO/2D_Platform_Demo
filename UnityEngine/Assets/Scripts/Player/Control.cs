@@ -124,6 +124,15 @@ public class Control : MonoBehaviour
         GetComponent<PlayerStatus>().cntDeath++;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("DeadZone")) return;
+        _hurtTrigger = true;
+        Debug.Log("trigger enter");
+
+        GetComponent<PlayerStatus>().cntDeath++;
+    }
+
     private void BeHurt()
     {
         if (!_hurtTrigger) return;

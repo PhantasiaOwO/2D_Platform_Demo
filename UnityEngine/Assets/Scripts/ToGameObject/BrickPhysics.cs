@@ -52,6 +52,12 @@ public class BrickPhysics : MonoBehaviour
             // Relieve "Button" available
             GameObject.Find("Player").GetComponent<PlayerStatus>().canSpawn = true;
         }
+        
+        // Transfer detect
+        if (this.transform.position.y < -50f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     #endregion

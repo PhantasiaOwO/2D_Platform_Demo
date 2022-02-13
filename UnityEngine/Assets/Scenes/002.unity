@@ -837,7 +837,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1182998930}
   remainTextBox: {fileID: 1648899984}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &787295296
 MonoBehaviour:
@@ -1507,7 +1507,7 @@ Transform:
   - {fileID: 1215487293}
   - {fileID: 1396702490}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &962512332
 PrefabInstance:
@@ -10963,7 +10963,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1460348806}
   remainTextBox: {fileID: 1861157411}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1571533119
 MonoBehaviour:
@@ -11173,7 +11173,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 671004391}
   remainTextBox: {fileID: 1379702636}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1729082735
 MonoBehaviour:
@@ -11641,7 +11641,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 1078938336}
   remainTextBox: {fileID: 474317954}
-  brickNumber: 2
+  brickNumber: 9
   brickInit: 0
 --- !u!114 &1987897964
 MonoBehaviour:
@@ -11746,7 +11746,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7565423882311123208, guid: 2bd90980a906f20488b10af06ded75a9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7565423882311123208, guid: 2bd90980a906f20488b10af06ded75a9, type: 3}
       propertyPath: m_LocalPosition.x
