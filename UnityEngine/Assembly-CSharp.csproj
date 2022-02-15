@@ -64,13 +64,13 @@
      <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\BrickPhysics.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
+     <Compile Include="Assets\Scripts\SceneControl\ESC\Resume.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\Connection.cs" />
+     <Compile Include="Assets\Scripts\SceneControl\ESC\HomePage.cs" />
      <Compile Include="Assets\Scripts\Player\NoticeDialog.cs" />
      <Compile Include="Assets\Scripts\SceneControl\Menu\StartButton.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationRun.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\ESC\Resume.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\ESC\HomePage.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
