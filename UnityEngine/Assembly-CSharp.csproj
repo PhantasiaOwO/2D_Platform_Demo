@@ -52,24 +52,28 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\SceneControl\Menu\ExitButton.cs" />
+     <Compile Include="Assets\Scripts\Buttons\MenuCanvas\ExitButton.cs" />
      <Compile Include="Assets\Scripts\Player\Control.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\Menu\LoadButton.cs" />
-     <Compile Include="Assets\Scripts\ToButton\BrickInteraction.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\ESC\Restart.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\Menu\LoadShade.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\SceneChangeTrigger\RebindTrigger.cs" />
+     <Compile Include="Assets\Scripts\Buttons\MenuCanvas\LoadButton.cs" />
+     <Compile Include="Assets\Scripts\Buttons\GameCanvas\HomePageButton.cs" />
+     <Compile Include="Assets\Scripts\Buttons\BrickInteraction.cs" />
+     <Compile Include="Assets\Scripts\ToGameObject\FinishCanvas\FinishTrigger.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EscapeCanvas(Old)\Restart.cs" />
+     <Compile Include="Assets\Scripts\Buttons\MenuCanvas\LoadShade.cs" />
+     <Compile Include="Assets\Scripts\SceneChangeTrigger\RebindTrigger.cs" />
      <Compile Include="Assets\Scripts\Player\Interaction.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\SceneChangeTrigger\LoadTrigger.cs" />
+     <Compile Include="Assets\Scripts\Buttons\GameCanvas\RestartButton.cs" />
+     <Compile Include="Assets\Scripts\ToGameObject\FinishCanvas\DataFill.cs" />
+     <Compile Include="Assets\Scripts\SceneChangeTrigger\LoadTrigger.cs" />
      <Compile Include="Assets\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\BrickPhysics.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\ESC\Resume.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EscapeCanvas(Old)\Resume.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\DialogTrigger.cs" />
-     <Compile Include="Assets\Scripts\ToGameObject\Connection.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\ESC\HomePage.cs" />
+     <Compile Include="Assets\Scripts\SceneChangeTrigger\Connection.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EscapeCanvas(Old)\HomePage.cs" />
      <Compile Include="Assets\Scripts\Player\NoticeDialog.cs" />
-     <Compile Include="Assets\Scripts\SceneControl\Menu\StartButton.cs" />
+     <Compile Include="Assets\Scripts\Buttons\MenuCanvas\StartButton.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationRun.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

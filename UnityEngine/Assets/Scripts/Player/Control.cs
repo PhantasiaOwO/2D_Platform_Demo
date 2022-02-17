@@ -16,8 +16,10 @@ public class Control : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     public Collider2D bodyCollider;
     public Collider2D groundDetectCollider;
+
     public LayerMask ground;
-    public GameObject gameObjectEsc;
+    // Change UI format
+    // public GameObject gameObjectEsc;
 
     #endregion
 
@@ -35,8 +37,10 @@ public class Control : MonoBehaviour
     private bool _isJumping;
     private bool _isBuilding;
     private bool _hurtTrigger;
+
     private bool _resetTrigger;
-    private bool _isPaused;
+    // Change UI format
+    // private bool _isPaused;
 
     #endregion
 
@@ -64,7 +68,8 @@ public class Control : MonoBehaviour
         _isBuilding = false;
         _hurtTrigger = false;
         _resetTrigger = false;
-        _isPaused = false;
+        // Change UI format
+        // _isPaused = false;
 
         Time.timeScale = 1;
 
@@ -78,18 +83,19 @@ public class Control : MonoBehaviour
 
     void Update()
     {
-        if (!_isPaused && Input.GetKeyDown(KeyCode.Escape))
-        {
-            _isPaused = true;
-            gameObjectEsc.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else if (_isPaused && Input.GetKeyDown(KeyCode.Escape))
-        {
-            _isPaused = false;
-            gameObjectEsc.SetActive(false);
-            Time.timeScale = 1;
-        }
+        // Change UI format
+        // if (!_isPaused && Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     _isPaused = true;
+        //     gameObjectEsc.SetActive(true);
+        //     Time.timeScale = 0;
+        // }
+        // else if (_isPaused && Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     _isPaused = false;
+        //     gameObjectEsc.SetActive(false);
+        //     Time.timeScale = 1;
+        // }
 
         JudgeJump();
         BeHurt();
