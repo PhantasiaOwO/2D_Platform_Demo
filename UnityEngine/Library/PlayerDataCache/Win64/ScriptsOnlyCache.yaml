@@ -22,6 +22,8 @@ ScriptsOnlyBuild:
     - SceneControl.ESC.HomePage
     - SceneControl.ESC.Resume
     - StartButton
+    - TwiceConfirmN
+    - TwiceConfirmY
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineConfiner
@@ -35,11 +37,8 @@ ScriptsOnlyBuild:
     - UnityEngine.U2D.Animation.SpriteSkin
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -143,15 +142,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4202}
     - Class: 114
-      Script: {instanceID: 4992}
+      Script: {instanceID: 4450}
     - Class: 114
-      Script: {instanceID: 5016}
+      Script: {instanceID: 4994}
     - Class: 114
-      Script: {instanceID: 5342}
+      Script: {instanceID: 5018}
     - Class: 114
-      Script: {instanceID: 5522}
+      Script: {instanceID: 5344}
     - Class: 114
-      Script: {instanceID: 5690}
+      Script: {instanceID: 5524}
+    - Class: 114
+      Script: {instanceID: 5542}
+    - Class: 114
+      Script: {instanceID: 5694}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -218,7 +221,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4250}
     - Class: 114
-      Script: {instanceID: 5180}
+      Script: {instanceID: 5182}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -894,7 +897,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4250}
     - Class: 114
-      Script: {instanceID: 5270}
+      Script: {instanceID: 5272}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -977,7 +980,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4250}
     - Class: 114
-      Script: {instanceID: 5586}
+      Script: {instanceID: 5590}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1052,11 +1055,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3620}
     - Class: 114
-      Script: {instanceID: 5108}
+      Script: {instanceID: 5110}
     - Class: 114
-      Script: {instanceID: 5540}
+      Script: {instanceID: 5544}
     - Class: 114
-      Script: {instanceID: 5586}
+      Script: {instanceID: 5590}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1226,7 +1229,7 @@ ScriptsOnlyBuild:
     className: CinemachineDollyCart
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 770347ef3adfab00e4a3d133cb014ca7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HomePageButton
@@ -1682,6 +1685,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: 770347ef3adfab00e4a3d133cb014ca7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TwiceConfirmN
+  - hash:
+      serializedVersion: 2
       Hash: eeb356fa33eec10332ebc7e468fecb95
     assemblyName: Cinemachine.dll
     namespaceName: 
@@ -1856,7 +1865,7 @@ ScriptsOnlyBuild:
     className: CinemachineHardLockToTarget
   - hash:
       serializedVersion: 2
-      Hash: 179d1c8acac9c8b64437c9b697302765
+      Hash: b15be2eb4e5035eb0cb96c0d9d699b58
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Connection
@@ -1902,6 +1911,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Notice
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TwiceConfirmY
   - hash:
       serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
