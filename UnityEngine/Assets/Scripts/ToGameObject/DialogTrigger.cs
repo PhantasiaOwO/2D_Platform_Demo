@@ -17,6 +17,7 @@ public class DialogTrigger : MonoBehaviour
         dialog.SetActive(true);
 
         animator = dialog.GetComponent<Animator>();
+        animator.SetBool(Appear,false);
         Debug.Log("Initialize dialog " + gameObject.ToString());
     }
 

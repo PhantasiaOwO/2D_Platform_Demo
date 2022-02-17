@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 50ccc5384853aa74da77124188d33899, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c694731e12f4ca642a85ab7bb557d160, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -733,6 +733,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4189271830769467162, guid: 28dc34bfedb3ec44eb90d1a6dff36f82, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3fe8744ed20f898468843675d71edc0c, type: 3}
     - target: {fileID: 4189271830769467167, guid: 28dc34bfedb3ec44eb90d1a6dff36f82, type: 3}
       propertyPath: m_Name
       value: ResetButton
@@ -750,6 +754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackHomeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8294412855453195452, guid: cd31b768507b2c448a62101d5420fc63, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 39231b6f644a9c94c963ce46c5b0162e, type: 3}
     - target: {fileID: 8294412855453195454, guid: cd31b768507b2c448a62101d5420fc63, type: 3}
       propertyPath: m_Pivot.x
       value: 0.6028513

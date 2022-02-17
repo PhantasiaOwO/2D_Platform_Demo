@@ -136,6 +136,8 @@ public class Control : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!col.collider.CompareTag("DeadZone")) return;
+        if (_resetTrigger) return;
+        
         _hurtTrigger = true;
         Debug.Log("trigger enter");
 
@@ -145,6 +147,8 @@ public class Control : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("DeadZone")) return;
+        if (_resetTrigger) return;
+        
         _hurtTrigger = true;
         Debug.Log("trigger enter");
 

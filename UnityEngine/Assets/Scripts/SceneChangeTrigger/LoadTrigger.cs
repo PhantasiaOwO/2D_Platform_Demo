@@ -88,7 +88,6 @@ public class LoadTrigger : MonoBehaviour
     {
         GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
         GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseClearCondition = false;
-        // TODO Turn off game object condition
         Destroy(GameObject.Find(TEMP_NAME));
     }
 }

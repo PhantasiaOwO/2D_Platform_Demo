@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5651823887753855026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0925708, y: -7.9573283, z: 0}
+  m_LocalPosition: {x: 2.0925708, y: -8.06, z: 0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1560179831
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0e2ecb11eba62744f860a5c8597df2e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,10 +125,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.9986006, y: -0.0013995022}
-      - {x: -1.0007948, y: -0.99930465}
-      - {x: 0.9982542, y: -0.9982537}
-      - {x: 0.9986005, y: 0.0019273311}
+    - - {x: -0.9986006, y: 0.49894625}
+      - {x: -1.0007948, y: -0.4899161}
+      - {x: 0.989968, y: -0.49607694}
+      - {x: 0.9773722, y: 0.49725276}
 --- !u!50 &5651823887753855027
 Rigidbody2D:
   serializedVersion: 4
