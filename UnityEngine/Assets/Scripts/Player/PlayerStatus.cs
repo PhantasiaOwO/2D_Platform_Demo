@@ -102,10 +102,15 @@ public class PlayerStatus : MonoBehaviour
 #if UNITY_EDITOR
     [MenuItem("Developer/Delete Player Status File")]
 #endif
-    public static void DeletePlayerStatusFile()
+    public static void DeletePlayerStatusFile_Editor()
     {
         SaveSystem.DeleteFile(PLAYER_STATUS_FILE_NAME);
     }
-
+    
+    public void DeletePlayerStatusFile()
+    {
+        SaveSystem.DeleteFile(PLAYER_STATUS_FILE_NAME);
+    }
+    
     #endregion
 }

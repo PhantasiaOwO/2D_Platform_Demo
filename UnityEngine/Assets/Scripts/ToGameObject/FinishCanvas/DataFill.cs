@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DataFill : MonoBehaviour
 {
-    public PlayerStatus data;
+    public GameObject player;
 
     public Text collectionCntText;
     public Text deathCntText;
@@ -14,11 +14,13 @@ public class DataFill : MonoBehaviour
 
     private void Start()
     {
-        data = GameObject.FindWithTag("Player").GetComponent<PlayerStatus>();
+        player = GameObject.FindWithTag("Player");
     }
 
     public void RefreshData()
     {
+        var data = player.GetComponent<PlayerStatus>();
+        
         collectionCntText.text = "任务完成个数：" + 12.ToString(); // TODO Add collection
         deathCntText.text = "死亡次数：" + data.cntDeath.ToString();
         placeCntText.text = "放置次数：" + data.cntPlace.ToString();

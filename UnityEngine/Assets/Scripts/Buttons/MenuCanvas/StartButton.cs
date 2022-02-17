@@ -19,6 +19,8 @@ public class StartButton : MonoBehaviour
     {
         Debug.Log("Click NewGame");
 
+        Time.timeScale = 1;
+        
         shade.SetActive(true);
         // shade.GetComponent<LoadShade>().ShadeAppear();
 

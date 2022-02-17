@@ -13,6 +13,7 @@ TagManager:
   - Spawn
   - DialogTrigger
   - Condition
+  - DeathSecondTextBox
   layers:
   - Default
   - TransparentFX

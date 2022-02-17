@@ -217,8 +217,8 @@ RectTransform:
   - {fileID: 957800156}
   - {fileID: 1093676208}
   - {fileID: 512286549}
-  - {fileID: 835465541}
   - {fileID: 869994995}
+  - {fileID: 835465541}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,8 +346,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -128, y: 132.59998}
-  m_SizeDelta: {x: 900, y: 600}
+  m_AnchoredPosition: {x: -239, y: 115}
+  m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &512286550
 MonoBehaviour:
@@ -489,12 +489,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 324737865}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.77, y: -188}
-  m_SizeDelta: {x: 900, y: 600}
+  m_AnchoredPosition: {x: -235, y: -201}
+  m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.49999982, y: 0.49999988}
 --- !u!114 &835465542
 MonoBehaviour:
@@ -709,12 +709,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 324737865}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107, y: -26}
-  m_SizeDelta: {x: 900, y: 600}
+  m_AnchoredPosition: {x: -229, y: -39}
+  m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.51751876, y: 0.5}
 --- !u!114 &869994996
 MonoBehaviour:
@@ -1074,8 +1074,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52, y: 249}
-  m_SizeDelta: {x: 3000, y: 1800}
+  m_AnchoredPosition: {x: -59, y: 364}
+  m_SizeDelta: {x: 2018.209, y: 1106.7603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093676209
 MonoBehaviour:
@@ -1195,7 +1195,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!224 &1959247612
 RectTransform:

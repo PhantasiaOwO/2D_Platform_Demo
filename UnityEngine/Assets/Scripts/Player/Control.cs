@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Control : MonoBehaviour
 {
@@ -34,11 +35,13 @@ public class Control : MonoBehaviour
 
     #region Boolean to transmit status
 
+    [HideInInspector] public bool canMove;
+
     private bool _isJumping;
     private bool _isBuilding;
     private bool _hurtTrigger;
-
     private bool _resetTrigger;
+    
     // Change UI format
     // private bool _isPaused;
 
@@ -70,6 +73,8 @@ public class Control : MonoBehaviour
         _resetTrigger = false;
         // Change UI format
         // _isPaused = false;
+
+        canMove = true;
 
         Time.timeScale = 1;
 
@@ -103,9 +108,14 @@ public class Control : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_resetTrigger) return;
+        if (!canMove)
+        {
+            playerRigidbody.velocity = new Vector2(0, 0);
+            return;
+        }
 
         // When building, lock the velocity and pass "Move" and "Jump"
+        // Same as canMove, but character should fall down
         if (_isBuilding)
         {
             var velocity = playerRigidbody.velocity;
@@ -120,6 +130,8 @@ public class Control : MonoBehaviour
     #endregion
 
     #region Dead action
+
+    private int _secondCnt;
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -143,11 +155,15 @@ public class Control : MonoBehaviour
     {
         if (!_hurtTrigger) return;
 
-        GetComponent<NoticeDialog>().ShowDeathNotice();
+        GetComponent<Notice>().ShowDeathNotice();
 
         // Trigger
         _hurtTrigger = false;
         _resetTrigger = true;
+        canMove = false;
+
+        // Count down 3 seconds
+        _secondCnt = 3;
 
         // Animation
         playerAnimator.SetBool(BlnAnimIdle, true);
@@ -162,7 +178,13 @@ public class Control : MonoBehaviour
 
     private IEnumerator ResetScene(Vector3 checkPoint)
     {
-        yield return new WaitForSeconds(3f);
+        var textBox = GameObject.FindWithTag("DeathSecondTextBox").GetComponent<Text>();
+
+        while (_secondCnt > 0)
+        {
+            textBox.text = "重生剩余" + _secondCnt--.ToString();
+            yield return new WaitForSecondsRealtime(1f);
+        }
 
         // Go to check point
         playerRigidbody.transform.position = GetComponent<PlayerStatus>().courseStart;
@@ -184,9 +206,9 @@ public class Control : MonoBehaviour
             Debug.Log("Reset button");
         }
 
+        GetComponent<Notice>().HideDeathNotice();
         _resetTrigger = false;
-
-        GetComponent<NoticeDialog>().HideDeathNotice();
+        canMove = true;
     }
 
     #endregion

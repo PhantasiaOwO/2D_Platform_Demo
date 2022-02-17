@@ -32,7 +32,7 @@ public class BrickInteraction : MonoBehaviour
 
     public void OnClick()
     {
-        var notice = GameObject.FindWithTag("Player").GetComponent<NoticeDialog>();
+        var notice = GameObject.FindWithTag("Player").GetComponent<Notice>();
         if (!GameObject.Find("Player").GetComponent<Control>().isOnGround)
         {
             // Notice didn't standing on the ground

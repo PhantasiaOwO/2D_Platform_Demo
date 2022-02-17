@@ -76,7 +76,7 @@ public class BrickPhysics : MonoBehaviour
 
         // Print deleted information
         // OLD: GameObject.FindWithTag("Player").GetComponent<NoticeDialog>().ShowBrickDestroyNotice();
-        var notice = GameObject.FindWithTag("Player").GetComponent<NoticeDialog>();
+        var notice = GameObject.FindWithTag("Player").GetComponent<Notice>();
         notice.ShowNotice(notice.brickDestroyNotice);
         
         // Modify the value of "BrickInteraction"

@@ -28,6 +28,7 @@ public class LoadButton : MonoBehaviour
         catch (Exception e)
         {
             GetComponent<Button>().interactable = false;
+            GetComponent<Image>().color = new Color(100, 100, 100, 255);
 
 #if UNITY_EDITOR
             Debug.LogError($"Load data try.{e}");
@@ -39,6 +40,8 @@ public class LoadButton : MonoBehaviour
     {
         Debug.Log("Click load button");
 
+        Time.timeScale = 1;
+        
         shade.SetActive(true);
         
         StartCoroutine(LoadSceneAsync());

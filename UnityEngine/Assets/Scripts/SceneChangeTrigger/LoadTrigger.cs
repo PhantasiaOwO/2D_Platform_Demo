@@ -37,7 +37,7 @@ public class LoadTrigger : MonoBehaviour
         {
             // Show no course clear condition notice
             // OLD: GameObject.FindWithTag("Player").GetComponent<NoticeDialog>().ShowNoCourseClearCondition();
-            var notice = GameObject.FindWithTag("Player").GetComponent<NoticeDialog>();
+            var notice = GameObject.FindWithTag("Player").GetComponent<Notice>();
             notice.ShowNotice(notice.noCourseClearConditionNotice);
             return;
         }
