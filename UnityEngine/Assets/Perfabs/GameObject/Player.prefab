@@ -230,7 +230,7 @@ PolygonCollider2D:
       - {x: -28.751076, y: 26.83471}
       - {x: -28.528297, y: 26.204622}
       - {x: -27.851755, y: 25.99603}
-      - {x: -17.48539, y: 24.757957}
+      - {x: -17.428036, y: 25.733007}
       - {x: -5.448159, y: 26.015629}
       - {x: -4.4603434, y: 26.345758}
       - {x: -3.9738736, y: 26.99998}
@@ -275,11 +275,11 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  gameObjectEsc: {fileID: 0}
   normalSpeed: 200
   jumpSpeed: 130
   jumpForce: 335
   isOnGround: 0
+  canMove: 0
 --- !u!114 &6662071731878249382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +338,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce585b490bd1824a921a2914d8420a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathNotice: {fileID: 0}
+  deathCanvas: {fileID: 0}
+  brickDestroyNotice: {fileID: 0}
+  noCourseClearConditionNotice: {fileID: 0}
+  notOnGroundNotice: {fileID: 0}
+  notLockBrickNotice: {fileID: 0}
+  notEnoughBrickNotice: {fileID: 0}
 --- !u!111 &1866820287435873200
 Animation:
   m_ObjectHideFlags: 0
