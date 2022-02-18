@@ -342,6 +342,9 @@ public class Control : MonoBehaviour
             GameObject.FindWithTag("BackGround").GetComponent<Collider2D>();
 
         Debug.Log("Rebind cam");
+        
+        // CourseClearCondition Icon turn off
+        GetComponent<Interaction>().conditionUI.SetActive(false);
     }
 
     #endregion
