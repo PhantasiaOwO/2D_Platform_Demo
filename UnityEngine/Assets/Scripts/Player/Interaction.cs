@@ -29,6 +29,7 @@ public class Interaction : MonoBehaviour
             GetComponent<PlayerStatus>().courseClearCondition = true;
             // TODO Add animator variable
             conditionUI.SetActive(true);
+            GetComponent<PlayerStatus>().cntCourseClearCondition++;
         }
 
         #endregion

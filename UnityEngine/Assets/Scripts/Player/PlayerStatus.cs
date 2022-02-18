@@ -20,9 +20,10 @@ public class PlayerStatus : MonoBehaviour
     public bool canSpawn;
 
     // Data count value
-    [HideInInspector] public int cntDeath;
-    [HideInInspector] public int cntPlace;
-    [HideInInspector] public int cntRestart;
+    public int cntCourseClearCondition;
+    public int cntDeath;
+    public int cntPlace;
+    public int cntRestart;
 
     private void Start()
     {
@@ -57,6 +58,7 @@ public class PlayerStatus : MonoBehaviour
         public int sav_sceneIndex;
         public int sav_health;
         public Vector3 sav_courseStart;
+        public int sav_cntCourseClearCondition;
         public int sav_cntDeath;
         public int sav_cntPlace;
         public int sav_cntRestart;
@@ -71,6 +73,7 @@ public class PlayerStatus : MonoBehaviour
             sav_sceneIndex = sceneIndex,
             sav_health = health,
             sav_courseStart = courseStart,
+            sav_cntCourseClearCondition = cntCourseClearCondition,
             sav_cntDeath = cntDeath,
             sav_cntPlace = cntPlace,
             sav_cntRestart = cntRestart,
@@ -90,6 +93,7 @@ public class PlayerStatus : MonoBehaviour
         sceneIndex = loadData.sav_sceneIndex;
         health = loadData.sav_health;
         courseStart = loadData.sav_courseStart;
+        cntCourseClearCondition = loadData.sav_cntCourseClearCondition;
         cntDeath = loadData.sav_cntDeath;
         cntPlace = loadData.sav_cntPlace;
         cntRestart = loadData.sav_cntRestart;
@@ -106,11 +110,11 @@ public class PlayerStatus : MonoBehaviour
     {
         SaveSystem.DeleteFile(PLAYER_STATUS_FILE_NAME);
     }
-    
+
     public void DeletePlayerStatusFile()
     {
         SaveSystem.DeleteFile(PLAYER_STATUS_FILE_NAME);
     }
-    
+
     #endregion
 }

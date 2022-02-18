@@ -45,6 +45,26 @@ public class Control : MonoBehaviour
     // Change UI format
     // private bool _isPaused;
 
+    public void InitializeAllBoolean()
+    {
+        // Initialize boolean
+        _isJumping = false;
+        _isBuilding = false;
+        _hurtTrigger = false;
+        _resetTrigger = false;
+        // Change UI format
+        // _isPaused = false;
+
+        canMove = true;
+        
+        playerAnimator.SetBool(BlnAnimIdle, true);
+        playerAnimator.SetBool(BlnAnimJump, false);
+        playerAnimator.SetBool(BlnAnimFall, false);
+        playerAnimator.SetBool(BlnAnimSummon, false);
+        playerAnimator.SetBool(BlnAnimRun, false);
+        playerAnimator.SetFloat(FltAnimRun, 0f);
+    }
+    
     #endregion
 
     #region Animator index
@@ -66,24 +86,26 @@ public class Control : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
 
+        InitializeAllBoolean();
+        
         // Initialize boolean
-        _isJumping = false;
-        _isBuilding = false;
-        _hurtTrigger = false;
-        _resetTrigger = false;
+        // _isJumping = false;
+        // _isBuilding = false;
+        // _hurtTrigger = false;
+        // _resetTrigger = false;
         // Change UI format
         // _isPaused = false;
 
-        canMove = true;
+        // canMove = true;
 
         Time.timeScale = 1;
 
-        playerAnimator.SetBool(BlnAnimIdle, true);
-        playerAnimator.SetBool(BlnAnimJump, false);
-        playerAnimator.SetBool(BlnAnimFall, false);
-        playerAnimator.SetBool(BlnAnimSummon, false);
-        playerAnimator.SetBool(BlnAnimRun, false);
-        playerAnimator.SetFloat(FltAnimRun, 0f);
+        // playerAnimator.SetBool(BlnAnimIdle, true);
+        // playerAnimator.SetBool(BlnAnimJump, false);
+        // playerAnimator.SetBool(BlnAnimFall, false);
+        // playerAnimator.SetBool(BlnAnimSummon, false);
+        // playerAnimator.SetBool(BlnAnimRun, false);
+        // playerAnimator.SetFloat(FltAnimRun, 0f);
     }
 
     void Update()
@@ -101,6 +123,21 @@ public class Control : MonoBehaviour
         //     gameObjectEsc.SetActive(false);
         //     Time.timeScale = 1;
         // }
+
+        if (!canMove)
+        {
+            playerRigidbody.velocity = new Vector2(0, 0);
+            return;
+        }
+
+        // When building, lock the velocity and pass "Move" and "Jump"
+        // Same as canMove, but character should fall down
+        if (_isBuilding)
+        {
+            var velocity = playerRigidbody.velocity;
+            playerRigidbody.velocity = new Vector2(0f, velocity.y);
+            return;
+        }
 
         JudgeJump();
         BeHurt();

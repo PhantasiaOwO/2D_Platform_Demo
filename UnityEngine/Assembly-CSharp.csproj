@@ -77,6 +77,8 @@
      <Compile Include="Assets\Scripts\Buttons\GameCanvas\TwiceConfirmY.cs" />
      <Compile Include="Assets\Scripts\Buttons\MenuCanvas\StartButton.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationRun.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EndCanvas\HomePage_End.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EndCanvas\StartButton_End.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

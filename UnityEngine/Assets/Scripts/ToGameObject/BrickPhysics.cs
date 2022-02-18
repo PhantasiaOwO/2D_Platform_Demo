@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class BrickPhysics : MonoBehaviour
 {
+    // private const string TEMP_NAME = "Temp";
+
     #region Unity component
 
     [SerializeField] private Rigidbody2D brickRigidbody;
@@ -52,6 +54,23 @@ public class BrickPhysics : MonoBehaviour
             // Relieve "Button" available
             GameObject.Find("Player").GetComponent<PlayerStatus>().canSpawn = true;
         }
+
+        // if (Input.GetButtonDown("Fire3"))
+        // {
+        //     Destroy(this.gameObject);// BUG delete all bricks
+        //     
+        //     var brickInteraction = sourceButton.GetComponent<BrickInteraction>();
+        //     brickInteraction.remainTextBox.text = (++brickInteraction.brickNumber).ToString();
+        //     
+        //     _canMove = false;
+        //     
+        //     // Relieve "Player" static
+        //     GameObject.Find("Player").SendMessage("ReceiveSpawnEnd");
+        //     Debug.Log("BrickPhysics: Player can move because placement ended.");
+        //
+        //     // Relieve "Button" available
+        //     GameObject.Find("Player").GetComponent<PlayerStatus>().canSpawn = true;
+        // }
         
         // Transfer detect
         if (this.transform.position.y < -50f)

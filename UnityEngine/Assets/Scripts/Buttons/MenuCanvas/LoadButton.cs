@@ -83,6 +83,19 @@ public class LoadButton : MonoBehaviour
 
         GameObject.FindWithTag("Player").GetComponent<Control>().SendMessage("RebindComponents");
         
+        // Player data added
+        try
+        {
+            SaveSystem.LoadFile<PlayerStatus.PlayerStatusData>(PlayerStatus.PLAYER_STATUS_FILE_NAME);
+            GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().LoadPlayerStatusFile();
+        }
+        catch (Exception e)
+        {
+#if UNITY_EDITOR
+            Debug.LogError($"Load data try.{e}");
+#endif
+        }
+        
         LoadEnd();
     }
 

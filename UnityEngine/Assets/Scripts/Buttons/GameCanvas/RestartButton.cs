@@ -6,9 +6,10 @@ public class RestartButton : MonoBehaviour
     {
         Debug.Log("Escape: Click restart");
         // Go to check point
-        GameObject.FindWithTag("Player").transform.position =
-            GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().courseStart;
-
+        var player = GameObject.FindWithTag("Player");
+        player.transform.position =player.GetComponent<PlayerStatus>().courseStart;
+        player.GetComponent<Control>().InitializeAllBoolean();
+        
         // Remove all spawn bricks
         var bricks = GameObject.FindGameObjectsWithTag("Spawn");
         foreach (var brick in bricks)

@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 6296570005205815563}
   - component: {fileID: 6296570005205815560}
   - component: {fileID: 6296570005205815561}
-  - component: {fileID: 7054416075841137506}
+  - component: {fileID: 7979133273321981870}
   m_Layer: 5
-  m_Name: ToStartButton
+  m_Name: ToStartButton(Obsoleted)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6296570005205815566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7054416075841137506}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+      - m_Target: {fileID: 7979133273321981870}
+        m_TargetAssemblyTypeName: StartButton_End, Assembly-CSharp
         m_MethodName: ClickNewGame
         m_Mode: 1
         m_Arguments:
@@ -133,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7054416075841137506
+--- !u!114 &7979133273321981870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6296570005205815567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09dd1b167b03c5a438427b20bbd1e343, type: 3}
+  m_Script: {fileID: 11500000, guid: aaeb79a7249e4d35b4824cd5eadbe0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shade: {fileID: 0}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ab69390dbe4a7b97b0a9da1de42ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  player: {fileID: 0}
   collectionCntText: {fileID: 6296570006214693599}
   deathCntText: {fileID: 6296570006248747470}
   placeCntText: {fileID: 6296570005907698759}
@@ -411,7 +411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -422.58}
+  m_AnchoredPosition: {x: 6, y: -334.78998}
   m_SizeDelta: {x: 385.7398, y: 120.7904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6296570005928470523
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 6296570006735943268}
   - component: {fileID: 6296570006735943269}
   - component: {fileID: 6296570006735943274}
-  - component: {fileID: 1649948678852045645}
+  - component: {fileID: 1800451021096245144}
   m_Layer: 5
   m_Name: HomePageButton
   m_TagString: Untagged
@@ -943,7 +943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -301.79}
+  m_AnchoredPosition: {x: 6, y: -214}
   m_SizeDelta: {x: 385.7398, y: 120.7904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6296570006735943268
@@ -1028,8 +1028,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1649948678852045645}
-        m_TargetAssemblyTypeName: HomePageButton, Assembly-CSharp
+      - m_Target: {fileID: 1800451021096245144}
+        m_TargetAssemblyTypeName: HomePage_End, Assembly-CSharp
         m_MethodName: ClickHomePage
         m_Mode: 1
         m_Arguments:
@@ -1040,7 +1040,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1649948678852045645
+--- !u!114 &1800451021096245144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6296570006735943272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10733bf4a82243bebfe4e283c5e9ed8d, type: 3}
+  m_Script: {fileID: 11500000, guid: f6897c57844a47929bce63571c908be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6296570004820605728
@@ -1125,7 +1125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756512318740288589, guid: b667b7fc18fc6c84c9191e373e13eadf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 222
+      value: 216
       objectReference: {fileID: 0}
     - target: {fileID: 2756512318740288589, guid: b667b7fc18fc6c84c9191e373e13eadf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1227,7 +1227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756512318740288589, guid: b667b7fc18fc6c84c9191e373e13eadf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2756512318740288589, guid: b667b7fc18fc6c84c9191e373e13eadf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1329,7 +1329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2756512318740288589, guid: b667b7fc18fc6c84c9191e373e13eadf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -187
+      value: -193
       objectReference: {fileID: 0}
     - target: {fileID: 2756512318740288589, guid: b667b7fc18fc6c84c9191e373e13eadf, type: 3}
       propertyPath: m_AnchoredPosition.y

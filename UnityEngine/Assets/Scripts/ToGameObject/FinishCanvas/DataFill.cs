@@ -19,11 +19,12 @@ public class DataFill : MonoBehaviour
 
     public void RefreshData()
     {
+        player = GameObject.FindWithTag("Player");
         var data = player.GetComponent<PlayerStatus>();
-        
-        collectionCntText.text = "任务完成个数：" + 12.ToString(); // TODO Add collection
-        deathCntText.text = "死亡次数：" + data.cntDeath.ToString();
-        placeCntText.text = "放置次数：" + data.cntPlace.ToString();
-        restartCntText.text = "重开次数：" + data.cntRestart.ToString();
+
+        collectionCntText.text = "任务完成个数：" + data.cntCourseClearCondition;
+        deathCntText.text = "死亡次数：" + data.cntDeath;
+        placeCntText.text = "放置次数：" + data.cntPlace;
+        restartCntText.text = "重开次数：" + data.cntRestart;
     }
 }
