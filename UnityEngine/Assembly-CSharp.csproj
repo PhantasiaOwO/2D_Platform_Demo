@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Player\Control.cs" />
      <Compile Include="Assets\Scripts\Buttons\MenuCanvas\LoadButton.cs" />
      <Compile Include="Assets\Scripts\Buttons\GameCanvas\HomePageButton.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EndCanvas\StartButton_End.cs" />
      <Compile Include="Assets\Scripts\Buttons\BrickInteraction.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\FinishCanvas\FinishTrigger.cs" />
      <Compile Include="Assets\Scripts\Buttons\EscapeCanvas(Old)\Restart.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\Buttons\GameCanvas\TwiceConfirmN.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\Buttons\EscapeCanvas(Old)\Resume.cs" />
+     <Compile Include="Assets\Scripts\Buttons\EndCanvas\HomePage_End.cs" />
      <Compile Include="Assets\Scripts\ToGameObject\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\SceneChangeTrigger\Connection.cs" />
      <Compile Include="Assets\Scripts\Buttons\EscapeCanvas(Old)\HomePage.cs" />
@@ -77,8 +79,6 @@
      <Compile Include="Assets\Scripts\Buttons\GameCanvas\TwiceConfirmY.cs" />
      <Compile Include="Assets\Scripts\Buttons\MenuCanvas\StartButton.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationRun.cs" />
-     <Compile Include="Assets\Scripts\Buttons\EndCanvas\HomePage_End.cs" />
-     <Compile Include="Assets\Scripts\Buttons\EndCanvas\StartButton_End.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

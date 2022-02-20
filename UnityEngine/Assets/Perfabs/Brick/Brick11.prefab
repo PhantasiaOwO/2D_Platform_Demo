@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5144953560971727307}
   - component: {fileID: 5144953560971727306}
   - component: {fileID: 2929684812788762056}
+  - component: {fileID: 1207898765507681198}
   m_Layer: 6
   m_Name: Brick11
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1560179831
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f988131e9da9bdc44adca24957427809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,7 +133,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.062489986, y: 1.4992447}
-      - {x: -0.06423259, y: 0.4998045}
+      - {x: -0.044466432, y: 0.5054523}
       - {x: -1.0629776, y: 0.5}
       - {x: -1.0631988, y: -0.49945068}
       - {x: -0.06392002, y: -0.50019836}
@@ -153,4 +154,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickRigidbody: {fileID: 0}
   brickCollider: {fileID: 0}
+  stuckDetectCollider: {fileID: 0}
   sourceButton: {fileID: 0}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!61 &1207898765507681198
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144953560971727317}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.22572683, y: 0.06638974}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48574427, y: 0.32640642}
+  m_EdgeRadius: 0

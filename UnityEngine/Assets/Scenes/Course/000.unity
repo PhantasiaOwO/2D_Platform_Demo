@@ -1953,7 +1953,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8560378290090934678, guid: 51ec0eff3cfb0ac44982d47fb2cdc8ab, type: 3}
       propertyPath: m_Text
-      value: "\u751F\u6210\u7269\u88AB\u6E05\u9664"
+      value: "\u7816\u5757\u88AB\u5F3A\u5236\u6E05\u9664"
       objectReference: {fileID: 0}
     - target: {fileID: 8560378290090934679, guid: 51ec0eff3cfb0ac44982d47fb2cdc8ab, type: 3}
       propertyPath: m_AnchoredPosition.x
