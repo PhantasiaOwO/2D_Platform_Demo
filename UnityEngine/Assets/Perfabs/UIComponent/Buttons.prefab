@@ -347,7 +347,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 0}
   remainTextBox: {fileID: 4711890295453359192}
-  brickNumber: 9
+  brickNumber: 2
   brickInit: 0
 --- !u!1 &4711890294858594697
 GameObject:
@@ -578,7 +578,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 0}
   remainTextBox: {fileID: 4711890294858594695}
-  brickNumber: 9
+  brickNumber: 2
   brickInit: 0
 --- !u!1 &4711890295387717613
 GameObject:
@@ -959,7 +959,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 0}
   remainTextBox: {fileID: 4711890294498513357}
-  brickNumber: 9
+  brickNumber: 2
   brickInit: 0
 --- !u!1 &4711890295608207639
 GameObject:
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   player: {fileID: 0}
   brick: {fileID: 0}
   remainTextBox: {fileID: 3025660178412242880}
-  brickNumber: 9
+  brickNumber: 2
   brickInit: 0
 --- !u!1 &4711890295822903305
 GameObject:

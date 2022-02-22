@@ -307,6 +307,10 @@ PrefabInstance:
       propertyPath: brick
       value: 
       objectReference: {fileID: 853877507}
+    - target: {fileID: 4554078361401372170, guid: 9e6c6f5c9734a9f458d109de826dd68a, type: 3}
+      propertyPath: brickNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4711890295387717611, guid: 9e6c6f5c9734a9f458d109de826dd68a, type: 3}
       propertyPath: m_Sprite
       value: 

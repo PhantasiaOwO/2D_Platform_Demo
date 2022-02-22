@@ -66,7 +66,7 @@ public class BrickInteraction : MonoBehaviour
 
         newBrick.transform.position = new Vector3(
             playerPosition.x + player.transform.localScale.x / 0.02f * 1.5f,
-            playerPosition.y + 1.5f,
+            playerPosition.y + 2.5f,
             playerPosition.z);
         newBrick.tag = "Spawn";
 

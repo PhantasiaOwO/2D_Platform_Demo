@@ -52,6 +52,8 @@ public class BrickPhysics : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        if (!_placing) return;
+        
         // Stuck delete
         if (stuckDetectCollider.IsTouchingLayers(ground))
         {
@@ -68,9 +70,7 @@ public class BrickPhysics : MonoBehaviour
             Cursor.visible = true;
             return;
         }
-
-        if (!_placing) return;
-
+        
         // Set other object when lock brick
         if (Input.GetButtonDown("Fire2"))
         {
